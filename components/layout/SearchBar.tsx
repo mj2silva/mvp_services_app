@@ -13,10 +13,10 @@ const SearchBar : FC = () => {
 
   return (
     <>
-      <button type="button" onClick={handleSearchBar} className="header-search-toggle-container">
-        <FontAwesomeIcon className="header-search-toggle" icon={iconSearch} />
+      <button type="button" onClick={handleSearchBar} className="search-toggle-container">
+        <FontAwesomeIcon className="search-toggle" icon={iconSearch} />
       </button>
-      <input type="text" className={`header-search-bar header-search-bar--${barStatus}`} />
+      <input type="text" className={`search-bar search-bar--${barStatus}`} />
     </>
   );
 };
