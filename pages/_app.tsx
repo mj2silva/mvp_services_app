@@ -1,10 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { AppProps } from 'next/app';
 import { ReactElement } from 'react';
-import '../styles/globals.css';
+import Layout from '../components/layout/Layout';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }:AppProps):ReactElement {
-  return <Component {...pageProps} />;
+  return <Layout><Component {...pageProps} /></Layout>;
 }
 
 export default MyApp;
