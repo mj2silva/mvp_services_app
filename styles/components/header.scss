@@ -1,0 +1,58 @@
+.header{
+  height: $headerHeight;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $cl-secondary;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  &-logo{
+    height: 5vh;
+    &-container{
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      width: fit-content;
+      height: 90%;
+      position: relative;
+      width: 30%;
+    }
+  }
+  &-options{
+    &-container{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      max-height: 10vh;
+      max-width: 30%;
+      width: 30%;
+      margin-right: 1rem;
+    }
+  }
+  &-option{
+    &-container{
+      margin: 0 0.5rem;
+      cursor: pointer;
+    }
+    &-icon{
+      color: $cl-white;
+      height: 2.625rem;
+      max-height: 7vh;
+      width: 2.625rem;
+      max-width: 7vh;
+      border-radius: 50%;
+      font-size: 1rem;
+      font-size-adjust: none;
+      background-color: $cl-secondary-2;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+  }
+}
