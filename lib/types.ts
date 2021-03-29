@@ -1,4 +1,4 @@
 export type Student = {
-  name:string,
-  lastname:string
+  name: string,
+  lastname: string
 }
