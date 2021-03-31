@@ -1,0 +1,107 @@
+.sidebar{
+  &-container{
+
+  }
+  &__block{
+    &-content{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      margin-top: 1.25rem;
+    }
+    &-title{
+      color: $cl-tertiary;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+    }
+    &-item{
+      cursor: pointer;
+      color: $cl-tertiary-2;
+      // margin-top: 1rem;
+      height: 2.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-radius: 0.5rem;
+      &:hover{
+        color: $cl-white;
+        background-color: $cl-secondary;
+        & .sidebar__block-item-ico-container{
+          display: none;
+        }
+        & .sidebar__block-item-ico-container-alt{
+          display: initial;
+        }
+      }
+      &-container{
+        list-style: none;
+        text-decoration: none;
+      }
+      &-ico{
+        height: 1rem;
+        // font-size: 1.25rem;
+        margin: 0 1rem;
+        &-container{
+          display: initial;
+          &-alt{
+            display: none;
+          }
+        }
+      }
+      &-label{
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+      &-subitems{
+        &-container{
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          margin-left: 2.8125rem;
+          overflow: hidden;
+          height: 0;
+          padding: 0;
+        }
+      }
+      &-subitem{
+        cursor: pointer;
+        color: $cl-tertiary;
+        margin-top: 0.75rem;
+        list-style: none;
+        &-link{
+          color: $cl-tertiary;
+          text-decoration: none;
+          &:hover{
+            color: $cl-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sidebar__block-item-active{
+  &~ .sidebar__block-item-subitems-container{
+    height: fit-content;
+    animation-name: acordion;
+    animation-duration: 0.5s;    
+  }
+  & .sidebar__block-item-ico-container{
+    display: none !important;
+  }
+  & .sidebar__block-item-ico-container-alt{
+    display: initial !important;
+  }
+
+}
+
+@keyframes acordion{
+  from{
+    height: 0;
+  }
+  to{
+    height: 6.5rem;
+  }
+}
