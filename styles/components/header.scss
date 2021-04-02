@@ -10,6 +10,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  &--center{
+    justify-content: center;
+  }
   &-logo{
     height: 5vh;
     &-container{
