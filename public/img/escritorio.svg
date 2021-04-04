@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62.779" height="60" viewBox="0 0 62.779 60">
+  <g id="escritorio" transform="translate(0 -11)">
+    <path id="Trazado_5043" data-name="Trazado 5043" d="M165.931,401l-10.675,3.806-.4,1.415a5.355,5.355,0,0,1-4.852,3.66v.952h22.139Z" transform="translate(-131.098 -340.784)" fill="#adaca7"/>
+    <path id="Trazado_5044" data-name="Trazado 5044" d="M206.316,380.027l-1.492-5.221L198.671,371l-6.153,3.806-1.087,3.806H202.1l.4,1.415a5.355,5.355,0,0,0,4.852,3.66l1.9.951,1.9-.951A5.355,5.355,0,0,1,206.316,380.027Z" transform="translate(-167.298 -314.59)" fill="#8f8f8b"/>
+    <path id="Trazado_5045" data-name="Trazado 5045" d="M437,270.031h3.806a3.817,3.817,0,0,0,3.806-3.806v-7.612L437,251Z" transform="translate(-381.833 -209.746)" fill="#adaca7"/>
+    <path id="Trazado_5046" data-name="Trazado 5046" d="M0,213.837a3.808,3.808,0,0,0,3.788,3.806h51.4a3.808,3.808,0,0,0,3.788-3.806V191L0,206.224Z" transform="translate(0 -157.342)" fill="#cbc9c2"/>
+    <path id="Trazado_5047" data-name="Trazado 5047" d="M440.806,11H437l3.806,38.061h3.806V14.806A3.817,3.817,0,0,0,440.806,11Z" transform="translate(-381.833)" fill="#050505"/>
+    <path id="Trazado_5048" data-name="Trazado 5048" d="M58.973,14.806A3.808,3.808,0,0,0,55.184,11H3.788A3.808,3.808,0,0,0,0,14.806V49.061H58.973V45.255L31.381,30.029Z" fill="#050505"/>
+    <path id="Trazado_5049" data-name="Trazado 5049" d="M276.221,40.977l-3.805,0L248.5,56.2l23.915,15.226,3.806,0s0-30.447,0-30.447Z" transform="translate(-217.248 -26.171)" fill="#4b88d5"/>
+    <path id="Trazado_5050" data-name="Trazado 5050" d="M81.361,40.976l-51.35,0S30.005,71.425,30,71.425l51.359,0S81.355,40.976,81.361,40.976Z" transform="translate(-26.194 -26.17)" fill="#69a7ff"/>
+    <circle id="Elipse_407" data-name="Elipse 407" cx="1.903" cy="1.903" r="1.903" transform="translate(29.486 52.672)" fill="#fff"/>
+    <path id="Trazado_5051" data-name="Trazado 5051" d="M126.012,472.9H86.945a.952.952,0,0,1,0-1.9h39.067a.952.952,0,0,1,0,1.9Z" transform="translate(-75.089 -401.903)" fill="#8f8f8b"/>
+  </g>
+</svg>
