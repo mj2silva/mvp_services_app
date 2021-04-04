@@ -29,6 +29,7 @@ const HeaderControls : FC = () => {
           };
           return (
             <Dropdown
+              key={`dd-${item.id}`}
               onClick={toggleDropdown}
               openedId={openedDropdown}
               id={item.id}
