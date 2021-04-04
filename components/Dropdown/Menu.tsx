@@ -1,5 +1,4 @@
-import { FC, useState} from 'react';
-
+import { FC } from 'react';
 import Link from 'next/link';
 import {
   faFileAlt, faCalendar, faQuestionCircle, faCog, faSignOutAlt,
@@ -11,7 +10,7 @@ const user = {
   id: '0',
   fullname: 'Academia Numeral',
   profileLink: './',
-  profilePicture: "/img/numeral_logo.svg",
+  profilePicture: '/img/numeral_logo.svg',
 };
 
 const optionsForMenu = {

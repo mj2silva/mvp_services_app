@@ -1,42 +1,35 @@
-import { FC, ReactNode, useState } from 'react';
-
-import Toggle from '../Dropdown/Toggle';
-import Spinner from '../Loading/Spinner';
-import Menu from '../Dropdown/Menu';
+import {
+  FC, ReactNode, useEffect, useState,
+} from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import Toggle from '../Dropdown/Toggle';
 
 type Props = {
-    iconToggle?: IconProp,
+    iconToggle: IconProp,
     children: ReactNode,
+    onClick: () => void,
+    openedId: number,
+    id: number,
 }
 
-const DropdownContent = (content, status) => (
-    /*(content !== null) ? (
-      <div className={`dashboard__menu-container dashboard__menu-container--${status}`}>
-        {content}
+const Dropdown : FC<Props> = (props : Props) => {
+  const {
+    iconToggle, children, onClick, openedId, id,
+  } = props;
+  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    setIsOpen(openedId === id);
+  }, [openedId, id]);
+  return (
+    <>
+      <Toggle iconToggle={iconToggle} onClick={onClick} />
+      <div
+        className={`dashboard__menu-container dashboard__menu-container--${(isOpen) ? 'visible' : 'hidden'}`}
+      >
+        {children}
       </div>
-    ) : (
-      null
-    )*/
-    <div className={`dashboard__menu-container dashboard__menu-container--${status}`}>
-        {content}
-    </div>
-);
-
-const Dropdown : FC<Props> = ({iconToggle,children}:Props) => {
-   
-    const [statusDropdown, setStatusDropdown] = useState('hidden');
-    const [contentDropdown, setContentDropdown] = useState(children);
-    const handlerToggle = (content) => {
-        setStatusDropdown((statusDropdown === 'visible') ? 'hidden' : 'visible');
-        //setContentDropdown(content);
-    };
-    return (
-        <>
-          <Toggle iconToggle={iconToggle} onClick={() => handlerToggle(children)} />
-          {DropdownContent(children, statusDropdown)}
-        </>
-    );
+    </>
+  );
 };
 
 export default Dropdown;
