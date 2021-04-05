@@ -1,0 +1,55 @@
+.config{
+    &-container{
+        color: $cl-white;
+    }
+    &__title{
+        padding-left: 14px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+    &-content{  
+        padding-top: 18px;
+        border-top-width: 5px;
+        border-top-color: white;
+    }
+    &__row{
+        width: 100%;
+        height: 43px;
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 14px;
+        font-weight: 500;
+        font-size: 16px;
+        &-head{
+            display: inline;
+            width: 110px;
+            height: 120px;
+            color: $cl-white;
+        }
+        &-slim{
+            font-weight: 300;
+        }
+        &-body{
+            display: inline;
+            width: 177px;
+            color: $cl-tertiary;
+            margin-left: 54px;
+        }
+        &-option{
+            display: inline;
+            background: transparent;
+            color: $cl-tertiary;
+            border: none;
+            margin-left: 200px;
+            margin-right: 12px;
+            &:hover{
+                cursor: hand;
+                color: $cl-white;
+            }
+        }
+        &-icon{
+            color: transparent;
+        }
+    }
+}

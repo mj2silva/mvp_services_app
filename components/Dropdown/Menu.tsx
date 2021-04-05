@@ -33,7 +33,7 @@ const optionsForMenu = {
     {
       icon: faCog,
       label: 'Configuración',
-      to: '',
+      to: '/configuracion',
     },
     {
       icon: faSignOutAlt,
