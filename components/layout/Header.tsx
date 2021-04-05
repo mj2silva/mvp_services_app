@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
+import HeaderControls from './HeaderControls';
 import SearchBar from './SearchBar';
 
 const Header : FC = () => (
@@ -10,7 +11,7 @@ const Header : FC = () => (
     <div className="header-logo-container">
       <Image src="/img/numeral-logo-header.svg" layout="fill" objectFit="scale-down" />
     </div>
-    <div className="header-options-container" />
+    <HeaderControls />
   </header>
 );
 
