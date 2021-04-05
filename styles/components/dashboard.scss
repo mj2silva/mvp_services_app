@@ -70,7 +70,7 @@
       &-name{
         font-size: 1rem;
         font-weight: 900;
-        color: $cl-tertiary-2;
+        color: $cl-softgray;
       }
       &-link{
         text-decoration: none;
@@ -82,7 +82,7 @@
     }
     &-option{
       &-container{
-        color: $cl-tertiary-2;
+        color: $cl-softgray;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -131,7 +131,7 @@
       }
       &-icon{
         font-size: 1.25rem;
-        color: $cl-tertiary-2;
+        color: $cl-softgray;
       }
     }
     &-container{
