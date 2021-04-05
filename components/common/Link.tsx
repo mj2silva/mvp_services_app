@@ -1,10 +1,10 @@
 import Link, { LinkProps } from 'next/link';
-import { FC, ReactNode } from 'react';
+import { FC, MouseEventHandler, ReactNode } from 'react';
 
 type Props = LinkProps & {
   children: ReactNode,
   className?: string,
-  onClick?: (event) => void;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
   tabIndex?: number;
   isBlank?: boolean;
 }
@@ -18,7 +18,7 @@ const CustomLink : FC<Props> = ({
       className={className}
       role={(onClick ? 'button' : null)}
       tabIndex={tabIndex}
-      onKeyUp={onClick}
+      onKeyUp={null}
       target={(isBlank) ? '_blank' : ''}
       rel={(isBlank) ? 'noreferrer' : ''}
     >

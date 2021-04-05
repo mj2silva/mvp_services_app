@@ -15,16 +15,18 @@ const NavLink : FC<Props> = (props : Props) => {
   const {
     className, activeClassName, href, children,
   } = props;
-  const router = useRouter();
+
   const [isActive, setIsActive] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
     setIsActive(router.asPath.toString() === href.toString());
-    console.log({ path: router.asPath, href });
   }, [router.asPath, href]);
+
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <CustomLink {...props} className={isActive ? activeClassName : className}>
-      { children}
+      { children }
     </CustomLink>
   );
 };
