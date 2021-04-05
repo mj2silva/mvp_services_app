@@ -2,7 +2,7 @@
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
-import Layout from '../components/layout/Layout';
+import Layout from '../components/layouts/Layout';
 import Authentication from '../components/authentication/Authentication';
 import '../styles/globals.scss';
 

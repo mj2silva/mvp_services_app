@@ -9,8 +9,8 @@ type Props = {
 }
 
 const Layout:FC<Props> = ({ children }:Props) => {
-  const router = useRouter();
-  const isSignIn = router;
+  const path = useRouter().asPath;
+  const isSignIn = path.includes('signin') || path.includes('signup');
   if (isSignIn) {
     return <SignInLayout>{ children }</SignInLayout>;
   }

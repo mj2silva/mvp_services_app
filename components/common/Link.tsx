@@ -1,9 +1,8 @@
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import { FC, ReactNode } from 'react';
 
-type Props = {
+type Props = LinkProps & {
   children: ReactNode,
-  href: string,
   className?: string,
   onClick?: (event) => void;
   tabIndex?: number;
