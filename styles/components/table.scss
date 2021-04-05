@@ -1,0 +1,25 @@
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  &__thead{
+
+  }
+  &__tbody{
+    & td{
+      text-align: center;
+    }
+  }
+  &__button{
+    border: none;
+    outline: none;
+    background: none;
+    color: $cl-tertiary;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Roboto';
+    font-weight: 400;
+    &:hover{
+      color: $cl-white;
+    }
+  }
+}

@@ -12,7 +12,7 @@ export const serviceRequests : ServiceRequest[] = [
     modality: 'VIRTUAL',
     context: 'SKYPE',
     status: 'ACEPTADA',
-    date: new Date('04-30-2021'),
+    date: new Date('04-30-2021 21:59:59'),
     code: 'SS002',
   },
   {
@@ -26,7 +26,7 @@ export const serviceRequests : ServiceRequest[] = [
     modality: 'PRESENCIAL',
     context: 'DOMICILIO',
     status: 'PENDIENTE',
-    date: new Date('04-04-2021'),
+    date: new Date('04-04-2021 7:7:59'),
     code: 'SS002',
   },
 ];
