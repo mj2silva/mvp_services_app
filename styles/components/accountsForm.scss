@@ -15,7 +15,7 @@
         border-left:  0.125rem;
         border-right:  0.125rem;
         border-bottom: 0;
-        border-color: $cl-tertiary-2;
+        border-color: $cl-softgray;
         border-style: solid;
     }
     &-link{
@@ -44,9 +44,9 @@
       align-items: center;
       background-color: $cl-tertiary-3;
       padding: 2rem;
-      border-bottom: 0.125rem solid $cl-tertiary-2;
-      border-left: 0.125rem solid $cl-tertiary-2;
-      border-right: 0.125rem solid $cl-tertiary-2;
+      border-bottom: 0.125rem solid $cl-softgray;
+      border-left: 0.125rem solid $cl-softgray;
+      border-right: 0.125rem solid $cl-softgray;
     }
     &-label{
       display: flex;
@@ -73,7 +73,7 @@
       font-weight: 400;
       outline: none;
       &::placeholder{
-        color: $cl-tertiary-2;
+        color: $cl-softgray;
       }
     }
     &-checkbox{
@@ -136,7 +136,7 @@
     align-items: center;
     text-decoration: none;
     width: fit-content;
-    background-color: $cl-tertiary-2;
+    background-color: $cl-softgray;
     height: 2.625rem;
     border-radius: calc(2.625 / 2);
     padding: 0 1rem;
@@ -183,7 +183,7 @@
       font-weight: 400;
       outline: none;
       &--disabled{
-        background-color: $cl-tertiary-2;
+        background-color: $cl-softgray;
         color: $cl-tertiary;
       }
       &--enabled{
