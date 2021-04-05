@@ -3,13 +3,7 @@ import { FC } from 'react';
 const Home:FC = () => (
   <>
     <div>
-      <h1>Hello Fucking World</h1>
-    </div>
-    <div>
-      <h1>Hello Fucking World</h1>
-    </div>
-    <div>
-      <h1>Hello Fucking World</h1>
+      <h1>Bienvenido Academia Numeral</h1>
     </div>
   </>
 );

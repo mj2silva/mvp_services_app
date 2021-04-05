@@ -1,0 +1,13 @@
+.options{
+  &__title{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $cl-softgray;
+  }
+  &__cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    grid-template-rows: 16.25rem;
+  }
+}
