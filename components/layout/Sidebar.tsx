@@ -17,7 +17,7 @@ const itemsForSidebarInitial = {
         {
           title: 'Solicitudes',
           status: 'default',
-          link: './pretest-académico',
+          link: './asesorias/solicitudes',
         },
         {
           title: 'Contratos',
