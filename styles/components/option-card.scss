@@ -1,0 +1,26 @@
+.option-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2F3031;
+  cursor: pointer;
+  padding: 0 1.25rem;
+  border-radius: 7px;
+  &__title{
+    font-size: 1rem;
+    font-weight: 500;
+    color: $cl-softgray;
+    text-align: center;
+  }
+  &__image{
+    height: 60px;
+    position: relative;
+  }
+  &__description{
+    font-size: 0.75rem;
+    font-weight: 300;
+    text-align: center;
+    color: $cl-tertiary;
+  }
+}

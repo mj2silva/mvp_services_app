@@ -10,6 +10,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  &-search{
+    &-container{
+      margin: 0;
+      justify-self: flex-start;
+      width: 30%;
+      max-width: 40%;
+      margin: 0 1.5rem;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &--center{
+    justify-content: center;
+  }
   &-logo{
     height: 5vh;
     &-container{

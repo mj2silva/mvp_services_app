@@ -1,0 +1,13 @@
+.text{
+  font-size: 1rem;
+  color: $cl-tertiary;
+  &--short{
+    font-size: 0.75rem;
+  }
+  &--medium{
+    font-weight: 500;
+  }
+  &--light{
+    font-weight: 300;
+  }
+}
