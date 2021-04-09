@@ -29,41 +29,42 @@ const HomeConfiguracion : FC<Props> = (props : Props) => {
                             <span className="config__row-container-head">Rol</span>
                             <div className="config__row-container-body">Apoderado: <span className="config__row-container-slim">Padre</span>
                                 <div className={`config__row-container-action--${(isOpen) ? 'visible' : 'hidden'}`}>
-                                <div className="datatable">
-                                <div className="datatable__filters">
-                                    <span className="datatable__filters-title">Filtros</span>
-                                    <button type="button" className="datatable__filter">Fecha</button>
-                                    <button type="button" className="datatable__filter">Modalidad</button>
-                                    <button type="button" className="datatable__filter">Estado</button>
-                                </div>
-                                <table className="table table--primary datatable__table">
-                                    <thead className="table__thead">
-                                    <tr>
-                                        <th>DNI</th>
-                                        <th>Estudiante</th>
-                                        <th>Parentesco</th>
-                                        <th>Detalle</th>
-                                        <th>Estado</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>12345678</td>
-                                        <td>Lisa Juárez</td>
-                                        <td>Padre</td>
-                                        <td><button type="button" className="table__button">Ver</button></td>
-                                        <td><span className="badge badge--aceptado">Activo</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>87654321</td>
-                                        <td>Cielo Juárez</td>
-                                        <td>Tutor</td>
-                                        <td><button type="button" className="table__button">Ver</button></td>
-                                        <td><span className="badge badge--aceptado">Inactivo</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                </div>
+                                    <div className="datatable">
+                                        <div className="datatable__filters">
+                                            <span className="datatable__filters-title">Eres apoderado de los siguientes estudiantes:</span>
+                                        </div>
+                                        <table className="table table--primary datatable__table">
+                                            <thead className="table__thead">
+                                                <tr>
+                                                    <th>DNI</th>
+                                                    <th>Estudiante</th>
+                                                    <th>Parentesco</th>
+                                                    <th>Detalle</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>12345678</td>
+                                                    <td>Lisa Juárez</td>
+                                                    <td>Padre</td>
+                                                    <td><button type="button" className="table__button">Ver</button></td>
+                                                    <td><span className="badge badge--aceptado">Activo</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>87654321</td>
+                                                    <td>Cielo Juárez</td>
+                                                    <td>Tutor</td>
+                                                    <td><button type="button" className="table__button">Ver</button></td>
+                                                    <td><span className="badge badge--aceptado">Inactivo</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div className="config__row-buttons-container">
+                                        <button type="button" className="">Cerrar</button>
+                                        <button type="button" className="">Aceptar</button>
+                                    </div>
                                 </div>
                             </div>
                             <div className="config__row-container-option">Ver</div>
@@ -96,7 +97,32 @@ const HomeConfiguracion : FC<Props> = (props : Props) => {
                         <button className="config__row-container">
                             <span className="config__row-container-head">Contacto</span>
                             <div className="config__row-container-body"><span className="config__row-container-slim">Principal: </span>+51933153250
-                                <div className={`config__row-container-edit--${(isOpen) ? 'visible' : 'hidden'}`}>{children}</div>
+                                <div className={`config__row-container-action--${(isOpen) ? 'visible' : 'hidden'}`}>
+                                    <div className="contact">
+                                        <div className="contact__title">
+                                            <span className="">Nos contactaremos contigo a través de:</span>
+                                        </div>
+                                        <div className="contact__body">
+                                            <div className="contact__body-container">
+                                                <div className="contact__body-container-row">
+                                                    <span className="">WhatsApp: </span>
+                                                    <span className="">+51 933153250</span>
+                                                    <span className=""> Principal</span>
+                                                </div>
+                                                <div className="contact__body-container-row">
+                                                    <span className="">Email: </span>
+                                                    <span className="">axeljenner@hotmail.com</span>
+                                                    <span className=""> Elegir como principal</span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                    <div className="config__row-buttons-container">
+                                        <button type="button" className="">Cerrar</button>
+                                        <button type="button" className="">Aceptar</button>
+                                    </div>
+                                </div>
                             </div>
                             <div className="config__row-container-option"><FontAwesomeIcon icon={faPencilAlt} className="config__row-container-option-icon" />Editar</div>
                         </button>

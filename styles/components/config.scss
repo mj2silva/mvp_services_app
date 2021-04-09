@@ -33,7 +33,7 @@
             background: transparent;
             border: none;
             outline: none;
-            height: 43px;
+            min-height: 43px;
             justify-content: center;
             align-content: center;
             width: 100%;
@@ -62,7 +62,7 @@
                     padding-right: 8px;
                 }
             }
-            &-edit{
+            &-action{
                 width: 50%;
                 
             }
@@ -79,6 +79,7 @@
                 }
             }
         }
+        
         
     }
     &-line{
