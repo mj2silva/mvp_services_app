@@ -16,15 +16,12 @@
         border-top-width: 5px;
         border-top: solid $cl-tertiary 1px;
         border-bottom: solid $cl-tertiary 1px;
-  
     }
     &__row{
-       
         margin-top: 8px;
         margin-bottom: 8px;
         font-weight: 500;
         font-size: 16px;
-       
         &-container{
             display: grid;
             grid-template-columns: 142px 1fr 64px;
@@ -64,7 +61,6 @@
             }
             &-action{
                 width: 50%;
-                
             }
             &:hover{
                 cursor: hand;
