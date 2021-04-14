@@ -1,24 +1,16 @@
 import {
-  FC, useEffect, useState,
+  FC, useState,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import Role from '../../components/configuration/Role';
 import DocumentNumber from '../../components/configuration/DocumentNumber';
 
-type Props = {
-    openedId: number,
-    id: number,
-}
-
-const HomeConfiguracion : FC<Props> = (props : Props) => {
-  const {
-    openedId, id,
-  } = props;
-  const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    setIsOpen(openedId === id);
-  }, [openedId, id]);
+const HomeConfiguracion : FC = () => {
+  const [openedId, setOpenedId] = useState<number>(null);
+  const changeOpened = (id: number = null) : void => {
+    setOpenedId(id);
+  };
   return (
     <>
       <div className="config-container">
@@ -27,7 +19,7 @@ const HomeConfiguracion : FC<Props> = (props : Props) => {
         </div>
         <div className="config-content">
           <div className="config__row">
-            <Role isOpen />
+            <Role openedId={openedId} id={1} changeOpened={changeOpened} />
           </div>
           <hr className="config-line" />
           <div className="config__row">
@@ -55,7 +47,7 @@ const HomeConfiguracion : FC<Props> = (props : Props) => {
               <div className="config__row-container-body">
                 <span className="config__row-container-slim">Principal: </span>
                 +51933153250
-                <div className={`config__row-container-action--${(isOpen) ? 'visible' : 'hidden'}`}>
+                <div className="config__row-container-action--visible">
                   <div className="contact">
                     <div className="contact__title">
                       <span className="">Nos contactaremos contigo a través de:</span>
