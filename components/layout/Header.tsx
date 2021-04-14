@@ -8,8 +8,8 @@ const Header : FC = () => (
     <div className="header__search-bar">
       <SearchBar />
     </div>
-    <div className="header__logo">
-      <Image src="/img/numeral-logo-header.svg" layout="fill" objectFit="scale-down" />
+    <div className="header__logo-container">
+      <Image src="/img/numeral-logo-header.svg" layout="fill" className="header__logo" />
     </div>
     <div className="header__controls">
       <HeaderControls />
