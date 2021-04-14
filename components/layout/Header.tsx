@@ -5,13 +5,15 @@ import SearchBar from './SearchBar';
 
 const Header : FC = () => (
   <header className="header">
-    <div className="header-search-container">
+    <div className="header__search-bar">
       <SearchBar />
     </div>
-    <div className="header-logo-container">
+    <div className="header__logo">
       <Image src="/img/numeral-logo-header.svg" layout="fill" objectFit="scale-down" />
     </div>
-    <HeaderControls />
+    <div className="header__controls">
+      <HeaderControls />
+    </div>
   </header>
 );
 
