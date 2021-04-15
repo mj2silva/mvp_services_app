@@ -59,7 +59,7 @@ const Sidebar:FC<Props> = ({ location }:Props) => {
     });
   };
   return (
-    <aside className="sidebar-container">
+    <aside className="sidebar">
       <h2 className="sidebar__block-title">
         {itemsSidebar.title}
       </h2>
