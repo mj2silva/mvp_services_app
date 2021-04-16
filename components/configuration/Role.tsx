@@ -59,14 +59,14 @@ const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
                   <td>Lisa Juárez</td>
                   <td>Padre</td>
                   <td><button type="button" className="table__button">Ver</button></td>
-                  <td><span className="badge badge--aceptado">Activo</span></td>
+                  <td><span className="badge badge--aceptada">Activo</span></td>
                 </tr>
                 <tr>
                   <td>87654321</td>
                   <td>Cielo Juárez</td>
                   <td>Tutor</td>
                   <td><button type="button" className="table__button">Ver</button></td>
-                  <td><span className="badge badge--aceptado">Inactivo</span></td>
+                  <td><span className="badge badge--rechazada">Inactivo</span></td>
                 </tr>
               </tbody>
             </table>
