@@ -3,9 +3,13 @@ import { getServiceRequests } from '../../lib/serviceRequestsApi';
 import { ServiceRequest } from '../../lib/types';
 import Spinner from '../../components/Loading/Spinner';
 import Datatable from '../../components/common/Datatable';
+import Modal from '../../components/modal/Modal';
 
 const Solicitudes:FC = () => {
   const [serviceRequests, setServiceRequests] = useState<ServiceRequest[]>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const openModal = () : void => setIsModalOpen(true);
+  const closeModal = () : void => setIsModalOpen(false);
 
   useEffect(() => {
     const getRequests = async ():Promise<void> => {
@@ -18,7 +22,7 @@ const Solicitudes:FC = () => {
   return (
     <>
       <div className="button-container button-container--rigth">
-        <button type="button" className="button button--primary">
+        <button onClick={openModal} type="button" className="button button--primary">
           Crear solicitud
         </button>
       </div>
@@ -33,7 +37,14 @@ const Solicitudes:FC = () => {
             </div>
           )
       }
-
+      <Modal
+        title="Solicitar un asesor académico"
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        popupWarningOnClose
+      >
+        Holis
+      </Modal>
     </>
   );
 };

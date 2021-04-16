@@ -54,7 +54,6 @@
     padding: 0 13%;
     @media screen and (max-width: 850px){
       flex-direction: column;
-      height: fill;
       min-height: fit-content;
       max-height: fit-content;
       padding: 0 1rem;
@@ -99,7 +98,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: -webkit-fill-available;
+      // width: -webkit-fill-available;
     }
     &--adjustment{
       &-y{
