@@ -35,8 +35,8 @@ type RoleOpenProps = {
 const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
   const { handleClose } = props;
   return (
-    <div className="config__row-container">
-      <span className="config__row-container-head">Rol</span>
+    <div className="config__row-selected">
+      <span className="config__row-container-headselected">Rol</span>
       <div className="config__row-container-body">
         <div className="config__row-container-action--visible">
           <div className="datatable">
@@ -72,8 +72,8 @@ const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
             </table>
           </div>
           <div className="config__row-buttons-container">
-            <button onClick={handleClose} type="button" className="">Cerrar</button>
-            <button type="button" className="">Aceptar</button>
+            <button onClick={handleClose} type="button" className="config__row-buttons-container-btn-close">Cerrar</button>
+            <button type="button" className="config__row-buttons-container-btn-new">Nuevo</button>
           </div>
         </div>
       </div>

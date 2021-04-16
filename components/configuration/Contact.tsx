@@ -40,32 +40,33 @@ type ContactOpenProps = {
 const ContactOpen : FC<ContactOpenProps> = (props : ContactOpenProps) => {
   const { handleClose } = props;
   return (
-    <div className="config__row-container">
-      <span className="config__row-container-head">Contacto</span>
+    <div className="config__row-selected">
+      <span className="config__row-container-headselected">Contacto</span>
         <div className="config__row-container-body">
           <div className="config__row-container-action--visible">
             <div className="contact">
               <div className="contact__title">
                 <span className="config__row-container-slim">Nos contactaremos contigo a través de:</span>
               </div>
+              <hr className="config-line" />
               <div className="contact__body">
                 <div className="contact__body-container">
                   <div className="contact__body-container-row">                          
-                    <span className="">WhatsApp: </span>
-                    <span className="">+51 933153250</span>
-                    <span className="config__row-container-slim"> Principal</span>
+                    <span className="contact__body-container-row-primary">WhatsApp: </span>
+                    <span className="contact__body-container-row-secondary">+51 933153250</span>
+                    <span className="contact__body-container-row-span"> Principal</span>
                   </div>
                   <div className="contact__body-container-row">
-                    <span className="">Email: </span>
-                    <span className="">axeljenner@hotmail.com</span>
-                    <span className="config__row-container-slim"> Elegir como principal</span>
+                    <span className="contact__body-container-row-primary">Email: </span>
+                    <span className="contact__body-container-row-secondary">axeljenner@hotmail.com</span>
+                    <span className="contact__body-container-row-span"> Elegir como principal</span>
                   </div>
                 </div>
               </div>
             </div>
           <div className="config__row-buttons-container">
-            <button onClick={handleClose} type="button" className="config__row-buttons-container-btn">Cerrar</button>
-            <button type="button" className="">Aceptar</button>
+            <button onClick={handleClose} type="button" className="config__row-buttons-container-btn-close">Cerrar</button>
+            <button type="button" className="config__row-buttons-container-btn-new">Nuevo</button>
           </div>
         </div>
       </div>
