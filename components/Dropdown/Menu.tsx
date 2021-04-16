@@ -9,7 +9,7 @@ import MenuOption from '../Dropdown/MenuOption';
 const user = {
   id: '0',
   fullname: 'Academia Numeral',
-  profileLink: './',
+  profileLink: '/',
   profilePicture: '/img/numeral_logo.svg',
 };
 
@@ -33,7 +33,7 @@ const optionsForMenu = {
     {
       icon: faCog,
       label: 'Configuración',
-      to: '',
+      to: '/configuracion',
     },
     {
       icon: faSignOutAlt,
@@ -62,10 +62,10 @@ const Menu: FC = () => (
     </div>
     <div className="dashboard__menu-options-container">
       {
-          optionsForMenu.options.map((option) => (
-            <MenuOption icon={option.icon} to={option.to} label={option.label} />
-          ))
-        }
+        optionsForMenu.options.map((option) => (
+          <MenuOption key={option.label} icon={option.icon} to={option.to} label={option.label} />
+        ))
+      }
     </div>
   </>
 );

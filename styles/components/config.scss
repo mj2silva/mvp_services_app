@@ -1,0 +1,183 @@
+.config{
+    &-container{
+        color: $cl-white;
+        background-color: #050505;
+        height: 556px;
+    }
+    &__title{
+        padding-left: 20px;
+        padding-top: 18px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+    &-content{  
+        margin-left: 20px;
+        margin-right: 20px;
+        border-top-width: 5px;
+        border-top: solid $cl-tertiary 1px;
+        border-bottom: solid $cl-tertiary 1px;
+    }
+    &__row{
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 16px;
+        
+        &-selected{
+            display: grid;
+            grid-template-columns: 142px 1fr 58px;
+            flex-direction: row;
+            border-radius: 5px;
+            background: #0D0D0D;
+            border: none;
+            outline: none;
+            min-height: 43px;
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+        }
+        &-container{
+            display: grid;
+            grid-template-columns: 142px 1fr 58px;
+            flex-direction: row;
+            border-radius: 5px;
+            background: transparent;
+            border: none;
+            outline: none;
+            min-height: 43px;
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+            &:hover{
+                background: #0D0D0D;
+            }
+            &-head{
+                display: flex;
+                color: $cl-white;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            &-headselected{
+                display: flex;
+                color: $cl-white;
+                font-size: 16px;
+                font-weight: 500;
+                padding-top: 10px;
+                padding-left: 6px;
+            }
+            
+            &-slim{
+                font-weight: 300;
+            }
+            &-body{
+                font-size: 16px;
+                display: flex;
+                color: $cl-tertiary;
+                margin-left: 64px;
+            }
+            &-option{
+                display: flex;
+                background: transparent;
+                color: $cl-tertiary;
+                justify-content: flex-end;
+                &-icon{
+                    display: none;
+                    padding-right: 8px;
+                }
+            }
+            &-action{
+                width: 50%;
+            }
+            &:hover{
+                cursor: hand;
+                color: $cl-white;
+                & .config__row-container-option-icon{
+                    display: flex;
+                }
+                & .config__row-container-option{
+                    display: flex;
+                    color: $cl-white;
+                }
+            }
+        }
+        &-buttons{
+            &-container{
+                display: flex;
+                justify-content: center;
+                margin-top: 12px;
+                margin-bottom: 12px;
+                &-btn{
+                    display: flex;
+                    justify-content: center;
+                    &-close{
+                        display: flex;
+                        justify-content: center;
+                        background: transparent;
+                        color: $cl-tertiary;
+                        border: none;
+                        outline: none;
+                        width: 80px;
+                        height: 21px;
+                        border-radius: 5px;
+                        &:hover{
+                            color: $cl-white;
+                            background: $cl-secondary-2;
+                        }
+                    }
+                    &-new{
+                        margin-left: 64px;
+                        display: flex;
+                        justify-content: center;
+                        background: $cl-secondary;
+                        color: $cl-softgray;
+                        border: none;
+                        outline: none;
+                        width: 80px;
+                        height: 21px;
+                        border-radius: 5px;
+                        &:hover{
+                            color: $cl-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-line{
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-top: solid #2F3031 0.5px;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+        
+    }
+}
+.contact{
+
+    &__title{
+
+    }
+    &__body{
+        &-container{
+            &-row{
+               
+                font-size: 16px;
+                &-primary{
+                    font-weight: 300;
+                    color: $cl-white;
+                }
+                &-secondary{
+                    font-weight: 500;
+                    color: $cl-white;
+                }
+                &-span{
+                    margin-left: 26px;
+                    font-weight: 300;
+                    color: $cl-tertiary;
+                }
+            }
+
+        }
+    }
+}
