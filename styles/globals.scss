@@ -11,11 +11,13 @@
 @import "./components/options.scss";
 @import "./components/text.scss";
 @import "./components/list-text.scss";
+@import "./components/table.scss";
 @import "./components/datatable.scss";
 @import "./components/badge.scss";
 @import "./components/button.scss";
 @import "./components/loading.scss";
 @import "./components/config.scss";
+@import "./components/no-requests.scss";
 
 body {
   padding: 0;
@@ -24,8 +26,10 @@ body {
 }
 
 .container{
-  display: grid;
-  grid-template-rows: $headerHeight auto;
+  // display: grid;
+  // grid-template-rows: $headerHeight auto;
+  display: flex;
+  flex-direction: column;
   overflow-y: hidden;
 }
 

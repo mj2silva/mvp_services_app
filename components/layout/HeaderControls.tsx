@@ -20,7 +20,7 @@ const headerControlsItems = [
 const HeaderControls : FC = () => {
   const [openedDropdown, setOpenedDropdown] = useState(0);
   return (
-    <div className="header-options-container">
+    <>
       {
         headerControlsItems.map((item) => {
           const toggleDropdown = () : void => {
@@ -40,7 +40,7 @@ const HeaderControls : FC = () => {
           );
         })
       }
-    </div>
+    </>
   );
 };
 
