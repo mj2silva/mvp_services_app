@@ -1,6 +1,16 @@
 .sidebar{
-  @media screen and (max-width: $breakpoint-tablet){
-    display: none;
+  &--open {
+    @media screen and (max-width: $breakpoint-tablet){
+      display: block;
+      position: fixed;
+      background-color: $cl-secondary;
+      top: 0;
+    }
+  }
+  &--closed {
+    @media screen and (max-width: $breakpoint-tablet){
+      display: none;
+    }
   }
   &__block{
     &-content{

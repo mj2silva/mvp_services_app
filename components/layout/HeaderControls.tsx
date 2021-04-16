@@ -4,7 +4,6 @@ import Dropdown from './Dropdown';
 import Menu from '../Dropdown/Menu';
 import Spinner from '../Loading/Spinner';
 
-
 const headerControlsItems = [
   {
     id: 1,
@@ -21,7 +20,6 @@ const headerControlsItems = [
     icon: faCaretDown,
     content: <Menu />,
   },
-  
 ];
 
 const HeaderControls : FC = () => {

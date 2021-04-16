@@ -1,15 +1,5 @@
   
   .search{
-    //enviado al scss del header en la linea 13
-    /*&-container{
-      margin: 0;
-      justify-self: flex-start;
-      width: 30%;
-      max-width: 40%;
-      margin: 0 1.5rem;
-      display: flex;
-      flex-direction: row;
-    }*/
     &-bar{
       height: 2.625rem;
       max-height: 7vh;
@@ -52,10 +42,6 @@
         position: relative;
         outline: none;
         border: none;
-        @media screen and (max-width: $breakpoint-tablet){
-          margin-left: 52px;
-        }
-        
       }
     }
   }
