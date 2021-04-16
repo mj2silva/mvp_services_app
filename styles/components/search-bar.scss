@@ -52,6 +52,10 @@
         position: relative;
         outline: none;
         border: none;
+        @media screen and (max-width: $breakpoint-tablet){
+          margin-left: 52px;
+        }
+        
       }
     }
   }

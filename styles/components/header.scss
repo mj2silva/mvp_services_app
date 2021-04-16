@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   height: $headerHeight;
-  width: calc(100% - 24px);
+  //width: calc(100% - 24px);
   margin: 0;
   padding: 0 24px;
   background-color: $cl-secondary;
@@ -19,6 +19,25 @@
     justify-self: flex-start;
     min-width: 240px;
     position: absolute;
+  }
+  &__bars{
+    display:none;
+    
+    @media screen and (max-width: $breakpoint-tablet){
+      display: block;
+      height: 2.625rem;
+      width: 2.625rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: $cl-secondary-2;
+      cursor: pointer;
+      position: relative;
+      outline: none;
+      border: none;
+      color: $cl-white;
+    }
   }
   &--center{
     justify-content: center;
@@ -77,6 +96,7 @@
       justify-content: center;
       align-items: center;
       padding: 0;
+      
     }
   }
 }

@@ -1,8 +1,9 @@
 import { FC, useState } from 'react';
-import { faCaretDown, faComments } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCaretDown, faComments } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from './Dropdown';
 import Menu from '../Dropdown/Menu';
 import Spinner from '../Loading/Spinner';
+
 
 const headerControlsItems = [
   {
@@ -12,9 +13,15 @@ const headerControlsItems = [
   },
   {
     id: 2,
+    icon: faBell,
+    content: <Spinner />,
+  },
+  {
+    id: 3,
     icon: faCaretDown,
     content: <Menu />,
   },
+  
 ];
 
 const HeaderControls : FC = () => {
