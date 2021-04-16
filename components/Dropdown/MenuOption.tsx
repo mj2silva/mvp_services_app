@@ -4,16 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 type Props = {
-  icon?: IconProp,
-  label?: string,
+  icon: IconProp,
+  label: string,
   to: string,
 }
-
-const defaultProps : Partial<Props> = {
-  to: '/',
-};
-
-const MenuOption:FC<Props> = ({ icon, label, to }:Props) => (
+const MenuOption:FC<Props> = ({ icon, label, to } : Props) => (
   <Link href={to}>
     <a className="dashboard__menu-option-container">
       <div className="dashboard__menu-option-icon-container">
@@ -25,7 +20,5 @@ const MenuOption:FC<Props> = ({ icon, label, to }:Props) => (
     </a>
   </Link>
 );
-
-MenuOption.defaultProps = defaultProps;
 
 export default MenuOption;

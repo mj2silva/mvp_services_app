@@ -66,7 +66,7 @@ const Sidebar:FC<Props> = ({ location }:Props) => {
       <ul className="sidebar__block-content">
         {
             itemsSidebar.items.map((item) => (
-              <Menu itemsMenu={item} clickHandler={changeSelect} />
+              <Menu key={item.id} itemsMenu={item} clickHandler={changeSelect} />
             ))
           }
       </ul>

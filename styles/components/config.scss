@@ -1,0 +1,90 @@
+.config{
+    &-container{
+        color: $cl-white;
+        background-color: #050505;
+        height: 556px;
+    }
+    &__title{
+        padding-left: 20px;
+        padding-top: 18px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+    &-content{  
+        margin-left: 20px;
+        margin-right: 20px;
+        border-top-width: 5px;
+        border-top: solid $cl-tertiary 1px;
+        border-bottom: solid $cl-tertiary 1px;
+    }
+    &__row{
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 16px;
+        &-container{
+            display: grid;
+            grid-template-columns: 142px 1fr 64px;
+            flex-direction: row;
+            border-radius: 5px;
+            background: transparent;
+            border: none;
+            outline: none;
+            min-height: 43px;
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+            &:hover{
+                background: #0D0D0D;
+            }
+            &-head{
+                display: flex;
+                color: $cl-white;
+            }
+            &-slim{
+                font-weight: 300;
+            }
+            &-body{
+                display: flex;
+                color: $cl-tertiary;
+                margin-left: 54px;
+            }
+            &-option{
+                display: flex;
+                background: transparent;
+                color: $cl-tertiary;
+                justify-content: flex-end;
+                &-icon{
+                    display: none;
+                    padding-right: 8px;
+                }
+            }
+            &-action{
+                width: 50%;
+            }
+            &:hover{
+                cursor: hand;
+                color: $cl-white;
+                & .config__row-container-option-icon{
+                    display: flex;
+                }
+                & .config__row-container-option{
+                    display: flex;
+                    color: $cl-white;
+                    
+                }
+            }
+        }
+        
+        
+    }
+    &-line{
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-top: solid #2F3031 0.5px;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+        
+    }
+}
