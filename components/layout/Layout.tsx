@@ -9,12 +9,12 @@ type Props = {
 const Layout:FC<Props> = ({ children }:Props) => (
   <div className="container">
     <Header />
-    <div className="dashboard-container">
+    <div className="dashboard">
       <Sidebar />
       <div>
         { children }
       </div>
-      <div><h1>Anuncios</h1></div>
+      <div className="dashboard__ads"><h1>Anuncios</h1></div>
     </div>
   </div>
 );

@@ -1,12 +1,22 @@
 .dashboard{
-  &-container{
-    width: calc(100% - 12rem);
-    min-height: calc(100vh - #{$headerHeight} - 8rem);
-    background-color: $cl-secondary-2;
-    padding: 4rem 6rem;
-    display: grid;
-    grid-template-columns: 12.375rem auto 12.375rem;
-    gap: 4rem;
+  width: calc(100% - 12rem);
+  min-height: calc(100vh - #{$headerHeight} - 8rem);
+  background-color: $cl-secondary-2;
+  padding: 4rem 6rem;
+  display: grid;
+  grid-template-columns: 12.375rem auto 12.375rem;
+  gap: 4rem;
+  @media screen and (max-width: $breakpoint-tablet){
+    width: calc(100%);
+    padding: 0;
+    grid-template-columns: 100%;
+    gap: 0;
+    min-height: calc(100vh - #{$headerHeight-mobile});
+  }
+  &__ads{
+    @media screen and (max-width: $breakpoint-tablet){
+      display: none;
+    }
   }
   &__menu{
     &-container{

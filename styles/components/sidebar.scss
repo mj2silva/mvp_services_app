@@ -1,6 +1,6 @@
 .sidebar{
-  &-container{
-
+  @media screen and (max-width: $breakpoint-tablet){
+    display: none;
   }
   &__block{
     &-content{
