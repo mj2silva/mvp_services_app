@@ -1,4 +1,4 @@
-import { ServiceRequest } from '../lib/types';
+import { ServiceRequest, PresentialContext, VirtualContext } from '../lib/types';
 
 export const serviceRequests : ServiceRequest[] = [
   {
@@ -10,7 +10,7 @@ export const serviceRequests : ServiceRequest[] = [
       active: true,
     },
     modality: 'VIRTUAL',
-    context: 'SKYPE',
+    context: VirtualContext.SKYPE,
     status: 'ACEPTADA',
     date: new Date('04-30-2021 21:59:59'),
     code: 'SS002',
@@ -24,7 +24,7 @@ export const serviceRequests : ServiceRequest[] = [
       active: true,
     },
     modality: 'PRESENCIAL',
-    context: 'DOMICILIO',
+    context: PresentialContext.DOMICILIO,
     status: 'PENDIENTE',
     date: new Date('04-04-2021 7:7:59'),
     code: 'SS002',

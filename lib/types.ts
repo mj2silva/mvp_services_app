@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 enum Grade {
   'PRIMERO',
   'SEGUNDO',
@@ -22,11 +24,11 @@ export type NumeralService = {
   active: boolean
 }
 
-enum VirtualContext {
+export enum VirtualContext {
   'SKYPE', 'GOOGLE MEET'
 }
 
-enum PresentialContext {
+export enum PresentialContext {
   'LOCAL', 'DOMICILIO'
 }
 
