@@ -38,11 +38,12 @@ const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
     <div className="config__row-selected">
       <span className="config__row-container-headselected">Rol</span>
       <div className="config__row-container-body">
-        <div className="config__row-container-action--visible">
+        <div className="config__row-container-action">
+        <div className="config__row-container-bodyselected">
+          Apoderado
+        </div>
+        <div className="config__row-container-slim">Eres apoderado de los siguientes estudiantes:</div>
           <div className="datatable">
-            <div className="datatable__filters">
-              <span className="datatable__filters-title">Eres apoderado de los siguientes estudiantes:</span>
-            </div>
             <table className="table table--primary datatable__table">
               <thead className="table__thead">
                 <tr>

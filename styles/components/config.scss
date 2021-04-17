@@ -69,11 +69,21 @@
             &-slim{
                 font-weight: 300;
             }
+            &-slimselect{
+                font-weight: 300;
+                margin-top: 10px;
+            }
             &-body{
                 font-size: 16px;
                 display: flex;
                 color: $cl-tertiary;
                 margin-left: 64px;
+            }
+            &-bodyselected{
+                font-size: 16px;
+                display: flex;
+                color: $cl-tertiary;
+                margin-bottom: 10px;
             }
             &-option{
                 display: flex;
@@ -86,7 +96,7 @@
                 }
             }
             &-action{
-                width: 50%;
+                width: 100%;
             }
             &:hover{
                 cursor: hand;
@@ -106,18 +116,18 @@
                 justify-content: center;
                 margin-top: 12px;
                 margin-bottom: 12px;
+                width: 100%;
                 &-btn{
-                    display: flex;
-                    justify-content: center;
                     &-close{
                         display: flex;
+                        align-items: center;
                         justify-content: center;
                         background: transparent;
                         color: $cl-tertiary;
                         border: none;
                         outline: none;
                         width: 80px;
-                        height: 21px;
+                        height: 26px;
                         border-radius: 5px;
                         &:hover{
                             color: $cl-white;
@@ -128,12 +138,13 @@
                         margin-left: 64px;
                         display: flex;
                         justify-content: center;
+                        align-items: center;
                         background: $cl-secondary;
                         color: $cl-softgray;
                         border: none;
                         outline: none;
                         width: 80px;
-                        height: 21px;
+                        height: 26px;
                         border-radius: 5px;
                         &:hover{
                             color: $cl-white;
@@ -156,7 +167,6 @@
 .contact{
 
     &__title{
-
     }
     &__body{
         &-container{
@@ -175,6 +185,22 @@
                     margin-left: 26px;
                     font-weight: 300;
                     color: $cl-tertiary;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    font-size: 16px;
+                }
+                &-spanselected{
+                    margin-left: 26px;
+                    font-weight: 300;
+                    color: $cl-tertiary;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    font-size: 16px;
+                    &:hover{
+                        color: $cl-white;
+                    }
                 }
             }
 
