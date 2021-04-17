@@ -18,7 +18,7 @@ const Header : FC<Props> = (props: Props) => {
   return (
     <header className="header">
       <button type="button" onClick={toggleSidebar} className="header__bars">
-        <FontAwesomeIcon className="" icon={faBars} />
+        <FontAwesomeIcon icon={faBars} />
       </button>
       <div className="header__search-bar">
         <SearchBar />

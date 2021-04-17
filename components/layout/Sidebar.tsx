@@ -3,6 +3,7 @@ import {
   faFile, faFileAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import Menu from './Menu';
+import HeaderMenu from './HeaderMenu';
 
 const itemsForSidebarInitial = {
   title: 'Servicios',
@@ -65,19 +66,22 @@ const Sidebar:FC<Props> = ({ location, isOpen } : Props) => {
       })),
     });
   };
+
   useEffect(() => {
     if (isOpen) setClassName(openClassName);
     else setClassName(closedClassName);
   }, [isOpen]);
+  
   return (
     <aside className={`sidebar ${className}`}>
+      <HeaderMenu />
       <h2 className="sidebar__block-title">
         {itemsSidebar.title}
       </h2>
       <ul className="sidebar__block-content">
         {
             itemsSidebar.items.map((item) => (
-              <Menu key={item.id} itemsMenu={item} clickHandler={changeSelect} />
+              <Menu key={item.id} itemsMenu={item}  clickHandler={changeSelect} />
             ))
           }
       </ul>

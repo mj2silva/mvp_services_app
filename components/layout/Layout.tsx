@@ -1,6 +1,7 @@
-import { FC, ReactNode, useState } from 'react';
+import { FC, useEffect, ReactNode, useState } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import HeaderMenu from './HeaderMenu';
 
 type Props = {
   children: ReactNode,
@@ -11,9 +12,12 @@ const Layout:FC<Props> = ({ children }:Props) => {
   const toggleOpen = () : void => {
     setIsOpen(!isOpen);
   };
+
   return (
     <div className="container">
+
       <Header toggleSidebar={toggleOpen} />
+      {/* <HeaderMenu toggleSidebar={toggleOpen} /> */}
       <div className="dashboard">
         <Sidebar isOpen={isOpen} />
         <div>
