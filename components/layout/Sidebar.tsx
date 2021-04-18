@@ -1,9 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import {
-  faFile, faFileAlt,
+  faFile, faFileAlt, faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import Menu from './Menu';
 import HeaderMenu from './HeaderMenu';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 const itemsForSidebarInitial = {
   title: 'Servicios',
@@ -38,6 +41,7 @@ const itemsForSidebarInitial = {
 type Props = {
   location?: string,
   isOpen?: boolean,
+  
 }
 
 // Clases de sidebar abierto y cerrado
@@ -47,10 +51,12 @@ const closedClassName = 'sidebar--closed';
 const defaultProps:Partial<Props> = {
   location: '/',
   isOpen: false,
+  
 };
 
 const Sidebar:FC<Props> = ({ location, isOpen } : Props) => {
   const [itemsSidebar, setItemsSidebar] = useState(itemsForSidebarInitial);
+  
   const [className, setClassName] = useState(closedClassName);
   const toggleClass = (status):string => ((status === 'active') ? 'default' : 'active');
   const changeSelect = (itemId):void => {
@@ -74,7 +80,16 @@ const Sidebar:FC<Props> = ({ location, isOpen } : Props) => {
   
   return (
     <aside className={`sidebar ${className}`}>
-      <HeaderMenu />
+      
+      <header className="headerMenu">
+      <div className="headerMenu__logo">
+        <Image src="/img/numeral-logo-header.svg" layout="fill" className="headerMenu__logo" />
+      </div>
+      <button type="button" className="headerMenu__close">
+        <FontAwesomeIcon  icon={faTimes} />
+      </button>
+    </header>
+
       <h2 className="sidebar__block-title">
         {itemsSidebar.title}
       </h2>

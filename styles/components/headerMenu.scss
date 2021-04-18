@@ -1,0 +1,62 @@
+.headerMenu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: $headerHeight;
+    margin: 0;
+    padding: 0 24px;
+    background-color: $cl-secondary;
+    position: relative;
+    display: none;
+    
+    @media screen and (max-width: $breakpoint-tablet){
+      height: $headerHeight-mobile;
+      padding: 0 12px;
+      display: block;
+    }
+
+    &--center{
+      justify-content: center;
+    }
+    
+    &__logo{
+  
+      display: block;
+      height: 3rem;
+      width: 143px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      outline: none;
+      border: none;
+      color: $cl-white;
+
+    }
+    
+    &__close{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+      color: $cl-tertiary;
+      height: 2.1rem;
+      max-height: 10vh;
+      width: 2.1rem;
+      border-radius: 50%;
+      font-size: 1rem;
+      font-size-adjust: none;
+      background-color: $cl-secondary-2;
+      border: none;
+      justify-content: center;
+      align-items: center;
+      margin-top:-37px;
+      margin-right: 12px;;
+      outline: none;
+   
+    }
+    
+  }
