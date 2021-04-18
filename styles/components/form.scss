@@ -1,0 +1,89 @@
+.form {
+  color: $cl-white;
+  z-index: 2;
+  margin: 1rem auto;
+  &__item {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 1rem 0;
+    &:focus-within .form__label {
+      font-size: .5rem;
+      top: .5rem;
+      bottom: auto;
+    }
+  }
+  &__input {
+    border: 1px solid $cl-dark-gray-soft;
+    background-color: transparent;
+    color: $cl-white;
+    padding: 1rem;
+    border-radius: 5px;
+    z-index: 2;
+    font-size: 1rem;
+    &::placeholder {
+      opacity: 0;
+    }
+    
+  }
+  &__label {
+    position: absolute;
+    display: block;
+    height: fit-content;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    left: 1rem;
+    color: $cl-gray;
+  }
+  &__select {
+    border: 1px solid $cl-dark-gray-soft;
+    background-color: transparent;
+    color: $cl-white;
+    border-radius: 5px;
+    z-index: 2;
+    font-size: 1rem;
+  }
+}
+
+.select {
+  &__control {
+    border: 1px solid $cl-dark-gray-soft !important;
+    background-color: transparent !important;
+    color: $cl-white;
+    border-radius: 5px;
+    z-index: 2;
+    font-size: 1rem;
+  }
+  &__value-container {
+    background-color: transparent !important;
+    padding: 0 !important;
+    & * {
+      padding: 0 !important;
+    }
+  }
+  &__indicators {
+    background-color: transparent;
+  }
+  &__menu {
+    
+  }
+  &__placeholder {
+    left: 1rem;
+    opacity: 0;
+  }
+  &__input {
+    padding: 1rem !important;
+    font-family: inherit;
+  }
+  &__menu-list {
+    background-color: $cl-dark-gray-soft !important;
+  }
+  &__option {
+    background-color: $cl-dark-gray-soft !important;
+    &:hover {
+      background-color: $cl-dark-gray !important;
+    }
+  }
+}

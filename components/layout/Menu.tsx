@@ -33,7 +33,7 @@ const Menu:FC<Props> = ({ itemsMenu, clickHandler }:Props) => (
     <ul className="sidebar__block-item-subitems-container">
       {
       itemsMenu.items.map((item) => (
-        <LinkSidebar key={item.title} to={`./${item.link}`}>{item.title}</LinkSidebar>
+        <LinkSidebar key={item.title} to={item.link}>{item.title}</LinkSidebar>
       ))
     }
     </ul>

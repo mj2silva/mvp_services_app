@@ -22,6 +22,7 @@
 @import "./components/config.scss";
 @import "./components/no-requests.scss";
 @import "./components/modal";
+@import "./components/form";
 
 body {
   padding: 0;
@@ -30,8 +31,6 @@ body {
 }
 
 .container{
-  // display: grid;
-  // grid-template-rows: $headerHeight auto;
   display: flex;
   flex-direction: column;
   overflow-y: hidden;

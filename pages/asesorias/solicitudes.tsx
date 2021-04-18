@@ -4,6 +4,7 @@ import { ServiceRequest } from '../../lib/types';
 import Spinner from '../../components/Loading/Spinner';
 import Datatable from '../../components/common/Datatable';
 import Modal from '../../components/modal/Modal';
+import NewRequestForm from '../../components/forms/NewRequestForm';
 
 const Solicitudes:FC = () => {
   const [serviceRequests, setServiceRequests] = useState<ServiceRequest[]>(null);
@@ -28,9 +29,7 @@ const Solicitudes:FC = () => {
       </div>
       {
         serviceRequests
-          ? (
-            <Datatable data={serviceRequests} />
-          )
+          ? <Datatable data={serviceRequests} />
           : (
             <div className="spinner-container">
               <Spinner />
@@ -43,7 +42,7 @@ const Solicitudes:FC = () => {
         onRequestClose={closeModal}
         popupWarningOnClose
       >
-        Holis
+        <NewRequestForm />
       </Modal>
     </>
   );
