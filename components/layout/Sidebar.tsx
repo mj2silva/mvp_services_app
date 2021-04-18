@@ -1,12 +1,12 @@
-import { FC, useEffect, useState } from 'react';
+import {
+  FC, MouseEventHandler, useEffect, useState,
+} from 'react';
 import {
   faFile, faFileAlt, faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import Menu from './Menu';
-import HeaderMenu from './HeaderMenu';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import Menu from './Menu';
 
 const itemsForSidebarInitial = {
   title: 'Servicios',
@@ -41,7 +41,7 @@ const itemsForSidebarInitial = {
 type Props = {
   location?: string,
   isOpen?: boolean,
-  
+  toggleSidebar?: MouseEventHandler,
 }
 
 // Clases de sidebar abierto y cerrado
@@ -51,12 +51,12 @@ const closedClassName = 'sidebar--closed';
 const defaultProps:Partial<Props> = {
   location: '/',
   isOpen: false,
-  
+  toggleSidebar: null,
 };
 
-const Sidebar:FC<Props> = ({ location, isOpen } : Props) => {
+const Sidebar:FC<Props> = ({ location, isOpen, toggleSidebar } : Props) => {
   const [itemsSidebar, setItemsSidebar] = useState(itemsForSidebarInitial);
-  
+
   const [className, setClassName] = useState(closedClassName);
   const toggleClass = (status):string => ((status === 'active') ? 'default' : 'active');
   const changeSelect = (itemId):void => {
@@ -77,18 +77,17 @@ const Sidebar:FC<Props> = ({ location, isOpen } : Props) => {
     if (isOpen) setClassName(openClassName);
     else setClassName(closedClassName);
   }, [isOpen]);
-  
+
   return (
     <aside className={`sidebar ${className}`}>
-      
       <header className="headerMenu">
-      <div className="headerMenu__logo">
-        <Image src="/img/numeral-logo-header.svg" layout="fill" className="headerMenu__logo" />
-      </div>
-      <button type="button" className="headerMenu__close">
-        <FontAwesomeIcon  icon={faTimes} />
-      </button>
-    </header>
+        <div className="headerMenu__logo">
+          <Image src="/img/numeral-logo-header.svg" layout="fill" className="headerMenu__logo" />
+        </div>
+        <button onClick={toggleSidebar} type="button" className="headerMenu__close">
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+      </header>
 
       <h2 className="sidebar__block-title">
         {itemsSidebar.title}
@@ -96,7 +95,7 @@ const Sidebar:FC<Props> = ({ location, isOpen } : Props) => {
       <ul className="sidebar__block-content">
         {
             itemsSidebar.items.map((item) => (
-              <Menu key={item.id} itemsMenu={item}  clickHandler={changeSelect} />
+              <Menu key={item.id} itemsMenu={item} clickHandler={changeSelect} />
             ))
           }
       </ul>

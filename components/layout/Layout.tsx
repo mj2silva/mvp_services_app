@@ -1,7 +1,9 @@
-import { FC, useEffect, ReactNode, useState } from 'react';
+import {
+  FC, useEffect, ReactNode, useState,
+} from 'react';
+import { useRouter } from 'next/router';
 import Sidebar from './Sidebar';
 import Header from './Header';
-import HeaderMenu from './HeaderMenu';
 
 type Props = {
   children: ReactNode,
@@ -13,13 +15,16 @@ const Layout:FC<Props> = ({ children }:Props) => {
     setIsOpen(!isOpen);
   };
 
+  const router = useRouter();
+  useEffect(() => {
+    setIsOpen(false);
+  }, [router.asPath]);
+
   return (
     <div className="container">
-
       <Header toggleSidebar={toggleOpen} />
-      {/* <HeaderMenu toggleSidebar={toggleOpen} /> */}
       <div className="dashboard">
-        <Sidebar isOpen={isOpen} />
+        <Sidebar isOpen={isOpen} toggleSidebar={toggleOpen} />
         <div>
           { children }
         </div>
