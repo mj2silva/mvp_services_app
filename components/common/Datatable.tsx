@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { ServiceRequest, TableContent } from '../../lib/types';
-import Table from './Table';
+import { ServiceRequest } from '../../lib/types';
+import Table, { TableContent } from './Table';
 
 type Props = {
   tableContent: TableContent

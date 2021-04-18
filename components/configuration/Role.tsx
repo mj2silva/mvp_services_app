@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import Table, { TableContent } from '../../components/common/Table';
 
 type Props = {
   openedId?: number,
@@ -33,52 +34,41 @@ type RoleOpenProps = {
 }
 
 const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
+  const TableConstructor = ['DNI','Estudiante','Parentesco','Detalle','Estado'];
+
+  const TableContent = {
+    headers: TableConstructor,
+    data: {
+      row: [
+        ['12345678','Lisa Juárez','Padre',<button type="button" className="table__button">Ver</button>,<span className="badge badge--aceptada">Activo</span>],
+        ['87654321','Cielo Juárez','Tutor',<button type="button" className="table__button">Ver</button>,<span className="badge badge--rechazada">Inactivo</span>],
+      ]
+    }
+  };
+
   const { handleClose } = props;
+
   return (
-    <div className="config__row-selected">
-      <span className="config__row-container-headselected">Rol</span>
-      <div className="config__row-container-body">
-        <div className="config__row-container-action">
-        <div className="config__row-container-bodyselected">
-          Apoderado
-        </div>
-        <div className="config__row-container-slim">Eres apoderado de los siguientes estudiantes:</div>
-          <div className="datatable">
-            <table className="table table--primary datatable__table">
-              <thead className="table__thead">
-                <tr>
-                  <th>DNI</th>
-                  <th>Estudiante</th>
-                  <th>Parentesco</th>
-                  <th>Detalle</th>
-                  <th>Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>12345678</td>
-                  <td>Lisa Juárez</td>
-                  <td>Padre</td>
-                  <td><button type="button" className="table__button">Ver</button></td>
-                  <td><span className="badge badge--aceptada">Activo</span></td>
-                </tr>
-                <tr>
-                  <td>87654321</td>
-                  <td>Cielo Juárez</td>
-                  <td>Tutor</td>
-                  <td><button type="button" className="table__button">Ver</button></td>
-                  <td><span className="badge badge--rechazada">Inactivo</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="config__row-buttons-container">
-            <button onClick={handleClose} type="button" className="config__row-buttons-container-btn-close">Cerrar</button>
-            <button type="button" className="config__row-buttons-container-btn-new">Nuevo</button>
+    <>
+      <div className="config__row-selected">
+        <span className="config__row-container-headselected">Rol</span>
+        <div className="config__row-container-body">
+          <div className="config__row-container-action">
+            <div className="config__row-container-bodyselected">
+              Apoderado
+            </div>
+            <div className="config__row-container-slim">
+              Eres apoderado de los siguientes estudiantes:
+            </div>
+              <Table content={TableContent} wrapperClass="config" modifier="striped-tbody" />
+            <div className="config__row-buttons-container">
+              <button onClick={handleClose} type="button" className="config__row-buttons-container-btn-close">Cerrar</button>
+              <button type="button" className="config__row-buttons-container-btn-new">Nuevo</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
