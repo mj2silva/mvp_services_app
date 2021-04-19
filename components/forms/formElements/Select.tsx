@@ -24,7 +24,7 @@ const Select: FC<Props> = (props: Props) => {
   } = props;
   const { field, fieldState } = useController({ name, defaultValue });
   return (
-    <label className="form__item" htmlFor={field.name}>
+    <label className="form__field" htmlFor={field.name}>
       <span className={`form__label ${field.value ? 'form__label--focused' : ''}`}>{label}</span>
       <div className="form__select">
         <ReactSelect
@@ -34,9 +34,10 @@ const Select: FC<Props> = (props: Props) => {
           onChange={field.onChange}
           onBlur={field.onBlur}
           defaultValue={defaultValue}
+          menuPlacement="auto"
         />
       </div>
-      { fieldState.error && <span>{ fieldState.error.message }</span> }
+      { fieldState.error && <span className="form__field-error">{ fieldState.error?.message }</span> }
     </label>
   );
 };

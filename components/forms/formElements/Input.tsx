@@ -12,10 +12,10 @@ const Input: FC<Props> = (props: Props) => {
   } = props;
   const { field, fieldState } = useController({ name });
   return (
-    <label className="form__item" htmlFor="service">
+    <label className="form__field" htmlFor={name}>
       <span className={`form__label ${(field.value) ? 'form__label--focused' : ''}`}>{label}</span>
       <input className="form__input" type="text" name={name} onBlur={field.onBlur} onChange={field.onChange} />
-      { fieldState.error && <span>{ fieldState.error?.message }</span> }
+      { fieldState.error && <span className="form__field-error">{ fieldState.error?.message }</span> }
     </label>
   );
 };

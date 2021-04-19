@@ -14,7 +14,7 @@ const DateInput: FC<Props> = (props: Props) => {
     name, onChange, onBlur, error, label,
   } = props;
   return (
-    <label className="form__item" htmlFor="service">
+    <label className="form__field" htmlFor="service">
       <span className="form__label">{label}</span>
       <input className="form__input" type="date" name={name} onBlur={onBlur} onChange={onChange} />
       { error && <span>{ error.message }</span> }
