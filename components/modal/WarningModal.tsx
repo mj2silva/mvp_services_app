@@ -37,7 +37,6 @@ const WarningModal: FC<Props> = (props: Props) => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
       isOpen={isOpen}
-      preventScroll
       overlayClassName="modal__overlay"
       className="modal__content modal__content--alert"
     >

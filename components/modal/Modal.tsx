@@ -74,7 +74,6 @@ const Modal: FC<Props> = (props: Props) => {
         {...props}
         isOpen={isOpen}
         onRequestClose={handleClose}
-        preventScroll
         overlayClassName="modal__overlay"
         className="modal__content"
       >

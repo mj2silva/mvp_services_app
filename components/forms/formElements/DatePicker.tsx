@@ -19,6 +19,7 @@ const DatePicker: FC<Props> = (props: Props) => {
     <label className="form__field" htmlFor="service">
       <span className={`form__label ${(field.value) ? 'form__label--focused' : ''}`}>{label}</span>
       <ReactDatePicker
+        popperPlacement="auto-start"
         dropdownMode="select"
         locale="es"
         selected={field.value}

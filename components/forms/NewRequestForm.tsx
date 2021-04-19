@@ -5,6 +5,7 @@ import { SubmitHandler, useForm, FormProvider } from 'react-hook-form';
 import Select from './formElements/Select';
 import Input from './formElements/Input';
 import DatePicker from './formElements/DatePicker';
+import TimePicker from './formElements/TimePicker';
 
 type SelectOption = {
   label: string,
@@ -25,20 +26,18 @@ const selectSchema = (message: string) : yup.AnyObjectSchema => yup.object().sha
 }).required(message).nullable();
 
 const requestFormValuesSchema = yupResolver(yup.object().shape({
-  date: yup.string().required('Debe ingresar una fecha'),
-  schedule: yup.string().required('Debe ingresar la hora solicitada'),
+  date: yup.string().required('Debe ingresar una fecha').nullable(),
   context: yup.string().required('Debe ingresar el lugar de la asesoría'),
   service: selectSchema('Debe seleccionar un servicio'),
   modality: selectSchema('Debe seleccionar la modalidad'),
+  startTime: selectSchema('Debe seleccionar la hora de inicio'),
+  finishTime: selectSchema('Debe seleccionar la hora de cierre'),
 }));
 
 const NewRequestForm: FC = () => {
   const formMethods = useForm<RequestFormValues>({ resolver: requestFormValuesSchema });
 
   const onSubmit: SubmitHandler<any> = (data) => alert(JSON.stringify({ data }));
-
-  const contextMethods = formMethods.register('context', { required: true });
-  const scheduleMethods = formMethods.register('schedule', { required: true });
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
@@ -57,15 +56,21 @@ const NewRequestForm: FC = () => {
           />
           <Input
             label="Contexto"
-            name={contextMethods.name}
+            name="context"
           />
           <DatePicker
             label="Fecha"
             name="date"
           />
-          <Input
-            label="Horario"
-            name={scheduleMethods.name}
+          <TimePicker
+            label="Hora inicio"
+            name="startTime"
+            size="medium"
+          />
+          <TimePicker
+            label="Hora fin"
+            name="finishTime"
+            size="medium"
           />
         </div>
         <div className="form__controls">

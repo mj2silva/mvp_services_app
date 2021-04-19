@@ -34,6 +34,7 @@ const Select: FC<Props> = (props: Props) => {
           onChange={field.onChange}
           onBlur={field.onBlur}
           defaultValue={defaultValue}
+          menuPlacement="auto"
         />
       </div>
       { fieldState.error && <span className="form__field-error">{ fieldState.error?.message }</span> }
