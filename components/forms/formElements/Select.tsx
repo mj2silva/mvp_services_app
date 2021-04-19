@@ -1,35 +1,46 @@
 import { FC } from 'react';
-import { ChangeHandler, FieldError } from 'react-hook-form';
-import ReactSelect from 'react-select';
+import { useController } from 'react-hook-form';
+import ReactSelect, { Props as ReactSelectProps } from 'react-select';
 
-type Props = {
+type SelectOption = {
+  label: string,
+  value: string,
+}
+
+type Props = ReactSelectProps & {
   name: string,
   label: string,
-  onChange: ChangeHandler,
-  onBlur: ChangeHandler,
-  error: FieldError,
-  options: {
-    label: string,
-    value: string,
-  }[],
+  defaultValue?: SelectOption,
+  options: SelectOption[],
 }
+
+const defaultProps: Partial<Props> = {
+  defaultValue: null,
+};
 
 const Select: FC<Props> = (props: Props) => {
   const {
-    name, onChange, onBlur, error, label, options,
+    name, options, label, defaultValue,
   } = props;
-  const handleChange = (params) : void => {
-    onChange(params);
-  };
+  const { field, fieldState } = useController({ name, defaultValue });
   return (
-    <label className="form__item" htmlFor={name}>
+    <label className="form__item" htmlFor={field.name}>
       <span className="form__label">{label}</span>
       <div className="form__select">
-        <ReactSelect className="select" classNamePrefix="select" options={options} onChange={handleChange} onBlur={onBlur} />
+        <ReactSelect
+          className="select"
+          classNamePrefix="select"
+          options={options}
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          defaultValue={defaultValue}
+        />
       </div>
-      { error && <span>{ error.message }</span> }
+      { fieldState.error && <span>{ fieldState.error.message }</span> }
     </label>
   );
 };
+
+Select.defaultProps = defaultProps;
 
 export default Select;
