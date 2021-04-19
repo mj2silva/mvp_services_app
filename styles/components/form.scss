@@ -24,11 +24,20 @@
   color: $cl-white;
   margin: 1rem auto;
   position: relative;
-  &__item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__fields {
+    display: flex;
+    flex-direction: column;
+  }
+  &__field {
     display: flex;
     position: relative;
     flex-direction: column;
-    margin: 1rem 0;
+    margin: 0;
+    margin-bottom: 1rem;
     &:focus-within .form__label {
       font-size: .5rem;
       top: .5rem;
@@ -45,14 +54,15 @@
     border-radius: 5px;
     position: relative;
     font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
     &::placeholder {
       opacity: 0;
     }
   }
   &__label {
     font-size: 1rem;
-    top: 0;
-    bottom: 0;
+    top: 1.5rem;
     position: absolute;
     display: block;
     height: fit-content;
@@ -61,7 +71,7 @@
     color: $cl-gray;
     animation: label-deselect ease .5s forwards;
     &--focused {
-      animation: label-select ease-out .5s forwards;
+      animation: label-select linear .4s forwards;
       font-size: .5rem;
       top: .5rem;
       bottom: auto;
@@ -73,6 +83,115 @@
     color: $cl-white;
     border-radius: 5px;
     font-size: 1rem;
+  }
+  &__field-error {
+    font-size: .7rem;
+    color: red;
+  }
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__button {
+    background-color: transparent;
+    color: $cl-white;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    padding: .8rem 1rem;
+    min-width: 8rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $cl-black;
+    }
+  }
+}
+
+.react-datepicker {
+  position: relative;
+  &__popper {
+    z-index: 2;
+    background-color: $cl-dark-gray-soft;
+    padding: 1rem;
+  }
+  &__day-names {
+    display: flex;
+  }
+  &__calendar {
+  }
+  &__wrapper {
+  }
+  &__time {
+    display: flex;
+  }
+  &__day {
+    display: flex;
+    width: 1.7rem;
+    height: 1.7rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover {
+      background-color: $cl-dark-gray;
+    }
+  }
+  &__week {
+    display: flex;
+  }
+  &__weekday {
+    display: flex;
+    width: 1.7rem;
+    height: 1.7rem;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      background-color: $cl-dark-gray;
+    }
+  }
+  &__month {
+    flex-direction: column;
+    display: flex;
+  }
+  &__current-month {
+    text-align: center;
+    width: 100%;
+  }
+  &__navigation {
+    background-color: none;
+    width: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    height: 1rem;
+    overflow: hidden;
+    color: transparent;
+    &--next {
+      right: 0;
+      position: absolute;
+      &::before {
+        content: '>';
+        color: $cl-dark-gray;
+        display: flex;
+        font-weight: bolder;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        line-height: .8rem;
+      }
+    }
+    &--previous {
+      position: absolute;
+      left: 0;
+      &::before {
+        content: '<';
+        color: $cl-dark-gray;
+        display: flex;
+        font-weight: bolder;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        line-height: .8rem;}
+    }
   }
 }
 

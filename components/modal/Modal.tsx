@@ -23,7 +23,7 @@ const DefaultHeaderComponent: FC<ModalHeaderProps> = (props: ModalHeaderProps) =
 };
 
 type Props = ReactModalProps & {
-  WarningBodyElement?: ReactNode,
+  WarningBodyElement?: FC | string,
   WarningControlsElement?: WarningControlsComponent,
   HeaderComponent?: FC<ModalHeaderProps>,
   warningTitle?: string,
@@ -79,7 +79,9 @@ const Modal: FC<Props> = (props: Props) => {
         className="modal__content"
       >
         <HeaderComponent title={title} onCloseModal={handleClose} />
-        { children }
+        <div className="modal__body">
+          { children }
+        </div>
       </ReactModal>
       { (popupWarningOnClose)
       && (

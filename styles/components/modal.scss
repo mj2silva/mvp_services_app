@@ -1,3 +1,7 @@
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
 .modal {
   &__overlay {
     position: fixed;
@@ -8,18 +12,31 @@
     position: absolute;
     inset: 100px 500px;
     width: fit-content;
-    height: fit-content;
+    min-height: 30rem;
+    height: 80vh;
     margin: auto;
     background: $cl-dark-gray;
     overflow: auto;
     border-radius: 4px;
     outline: none;
     padding: 20px;
+    &--alert {
+      height: fit-content;
+      min-height: auto;
+    }
+  }
+  &__body {
+    height: calc(80vh - 5rem);
+    color: $cl-white;
+    &--alert {
+      height: fit-content;
+    }
   }
   &__header {
     display: flex;
     align-items: center;
     width: 100%;
+    height: 4rem;
     justify-content: space-between;
   }
   &__title {
@@ -47,6 +64,28 @@
     &:hover {
       color: $cl-dark-gray-soft;
       background-color: $cl-gray;
+    }
+  }
+  &__alert {
+    &-buttons {
+      display: flex;
+      justify-content: flex-end;
+    }
+    &-button {
+      background-color: transparent;
+      color: $cl-white;
+      border: none;
+      border-radius: 8px;
+      margin-left: .5rem;
+      padding: .5rem 1rem;
+      cursor: pointer;
+      outline: none;
+      &--no-prefered {
+        color: $cl-gray;
+      }
+      &:hover {
+        background-color: $cl-black;
+      }
     }
   }
 }

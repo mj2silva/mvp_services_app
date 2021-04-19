@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactNode } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import DefaultWarningBody from './defaultComponents/DefaultWarningBody';
 import DefaultWarningControls, { WarningControlsComponent } from './defaultComponents/DefaultWarningControls';
@@ -10,7 +10,7 @@ type Props = ReactModalProps & {
   confirmCloseModal: MouseEventHandler,
   cancelCloseModal: MouseEventHandler,
   WarningHeader?: WarningHeaderComponent,
-  WarningBody?: ReactNode,
+  WarningBody?: FC | string,
   WarningControls?: WarningControlsComponent,
   warningTitle?: string,
 }
@@ -39,14 +39,16 @@ const WarningModal: FC<Props> = (props: Props) => {
       isOpen={isOpen}
       preventScroll
       overlayClassName="modal__overlay"
-      className="modal__content"
+      className="modal__content modal__content--alert"
     >
       <WarningHeader cancelCloseModal={cancelCloseModal} title={warningTitle} />
-      { WarningBody }
-      <WarningControls
-        cancelCloseModal={cancelCloseModal}
-        confirmCloseModal={confirmCloseModal}
-      />
+      <div className="modal__body modal__body--alert">
+        { (typeof WarningBody === 'string' ? WarningBody : <WarningBody />)}
+        <WarningControls
+          cancelCloseModal={cancelCloseModal}
+          confirmCloseModal={confirmCloseModal}
+        />
+      </div>
     </ReactModal>
   );
 };

@@ -39,3 +39,27 @@ body {
 html {
   font-size: 16px;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $cl-gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $cl-dark-gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $cl-dark-gray-soft;
+}
+
+button {
+  outline: none;
+}
