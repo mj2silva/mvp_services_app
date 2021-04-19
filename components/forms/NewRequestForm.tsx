@@ -58,9 +58,6 @@ const NewRequestForm: FC = () => {
         <Input
           label="Contexto"
           name={contextMethods.name}
-          onBlur={contextMethods.onBlur}
-          onChange={contextMethods.onChange}
-          error={formMethods.formState.errors.context}
         />
         <DateInput
           label="Fecha"
@@ -72,9 +69,6 @@ const NewRequestForm: FC = () => {
         <Input
           label="Horario"
           name={scheduleMethods.name}
-          onBlur={scheduleMethods.onBlur}
-          onChange={scheduleMethods.onChange}
-          error={formMethods.formState.errors.schedule}
         />
         <button type="submit">Guardar</button>
       </form>

@@ -25,7 +25,7 @@ const Select: FC<Props> = (props: Props) => {
   const { field, fieldState } = useController({ name, defaultValue });
   return (
     <label className="form__item" htmlFor={field.name}>
-      <span className="form__label">{label}</span>
+      <span className={`form__label ${field.value ? 'form__label--focused' : ''}`}>{label}</span>
       <div className="form__select">
         <ReactSelect
           className="select"

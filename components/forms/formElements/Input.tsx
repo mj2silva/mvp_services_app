@@ -1,23 +1,21 @@
 import { FC } from 'react';
-import { ChangeHandler, FieldError } from 'react-hook-form';
+import { useController } from 'react-hook-form';
 
 type Props = {
   name: string,
   label: string,
-  onChange: ChangeHandler,
-  onBlur: ChangeHandler,
-  error: FieldError,
 }
 
 const Input: FC<Props> = (props: Props) => {
   const {
-    name, onChange, onBlur, error, label,
+    name, label,
   } = props;
+  const { field, fieldState } = useController({ name });
   return (
     <label className="form__item" htmlFor="service">
-      <span className="form__label">{label}</span>
-      <input className="form__input" type="text" name={name} onBlur={onBlur} onChange={onChange} />
-      { error && <span>{ error.message }</span> }
+      <span className={`form__label ${(field.value) ? 'form__label--focused' : ''}`}>{label}</span>
+      <input className="form__input" type="text" name={name} onBlur={field.onBlur} onChange={field.onChange} />
+      { fieldState.error && <span>{ fieldState.error?.message }</span> }
     </label>
   );
 };
