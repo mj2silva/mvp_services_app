@@ -40,8 +40,8 @@ const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
     headers: TableConstructor,
     data: {
       row: [
-        ['12345678','Lisa Juárez','Padre',<button type="button" className="table__button">Ver</button>,<span className="badge badge--aceptada">Activo</span>],
-        ['87654321','Cielo Juárez','Tutor',<button type="button" className="table__button">Ver</button>,<span className="badge badge--rechazada">Inactivo</span>],
+        ['12345678','Lisa Juárez','Padre',<button type="button" className="table__button">Ver</button>,<div className="badge-container"><span className="badge badge--aceptada">Inactivo</span></div>],
+        ['87654321','Cielo Juárez','Tutor',<button type="button" className="table__button">Ver</button>,<div className="badge-container"><span className="badge badge--rechazada">Inactivo</span></div>],
       ]
     }
   };
