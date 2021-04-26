@@ -43,10 +43,10 @@ const ContactOpen : FC<ContactOpenProps> = (props : ContactOpenProps) => {
     <div className="config__row-selected">
       <span className="config__row-container-headselected">Contacto</span>
         <div className="config__row-container-body">
-          <div className="config__row-container-action--visible">
+          <div className="config__row-container-action">
             <div className="contact">
               <div className="contact__title">
-                <span className="config__row-container-slim">Nos contactaremos contigo a través de:</span>
+                <span className="config__row-container-slimselect">Nos contactaremos contigo a través de:</span>
               </div>
               <hr className="config-line" />
               <div className="contact__body">
@@ -59,7 +59,7 @@ const ContactOpen : FC<ContactOpenProps> = (props : ContactOpenProps) => {
                   <div className="contact__body-container-row">
                     <span className="contact__body-container-row-primary">Email: </span>
                     <span className="contact__body-container-row-secondary">axeljenner@hotmail.com</span>
-                    <span className="contact__body-container-row-span"> Elegir como principal</span>
+                    <button className="contact__body-container-row-spanselected">Elegir como principal</button>
                   </div>
                 </div>
               </div>
