@@ -6,6 +6,7 @@ import Select from './formElements/Select';
 import Input from './formElements/Input';
 import DatePicker from './formElements/DatePicker';
 import TimePicker from './formElements/TimePicker';
+import Wizard from '../wizard/Wizard';
 
 type SelectOption = {
   label: string,
@@ -55,7 +56,7 @@ const NewRequestForm: FC = () => {
             options={[{ label: 'Presencial', value: '01' }, { label: 'Virtual', value: '02' }]}
           />
           <Input
-            label="Contexto"
+            label="Contexto/Locación"
             name="context"
           />
           <DatePicker
@@ -77,6 +78,7 @@ const NewRequestForm: FC = () => {
           <button className="form__button" type="submit">Guardar</button>
         </div>
       </form>
+      <Wizard totalPages={6} />
     </FormProvider>
   );
 };
