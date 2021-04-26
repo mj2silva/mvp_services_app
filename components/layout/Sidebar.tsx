@@ -6,9 +6,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import Menu from './Menu';
 
 export type ItemSidebar = {
   id: number,
@@ -24,7 +24,7 @@ export type ItemSidebar = {
 }
 
 export type Sidebar = {
-  id: number, 
+  id: number,
   name: string,
   baseUrl: string,
   items: ItemSidebar[]
@@ -33,7 +33,7 @@ export type Sidebar = {
 const defaultSidebar:Sidebar = {
   id: 0,
   name: 'Servicios',
-  baseUrl:'/',
+  baseUrl: '/',
   items: [
     {
       id: 1,
@@ -59,14 +59,14 @@ const defaultSidebar:Sidebar = {
         },
       ],
     },
-  ]
-}
+  ],
+};
 
 const sidebarCollection:Sidebar[] = [
   {
     name: 'Configuración',
     id: 1,
-    baseUrl:'configuracion',
+    baseUrl: 'configuracion',
     items: [
       {
         id: 1,
@@ -92,10 +92,10 @@ const sidebarCollection:Sidebar[] = [
           },
         ],
       },
-    ]
-  }
+    ],
+  },
 ];
-        
+
 type Props = {
   location?: string,
   isOpen?: boolean,
@@ -116,17 +116,15 @@ const Sidebar:FC<Props> = ({ location, isOpen, toggleSidebar } : Props) => {
   const router = useRouter();
   const { asPath } = router;
   const [sidebar, setSidebar] = useState<Sidebar>(defaultSidebar);
-  const [sidebarInitial, setSidebarInitial] = useState<Sidebar>(sidebar);
-  const [itemsSidebar, setItemsSidebar] = useState(itemsForSidebarInitial);
   const [className, setClassName] = useState(closedClassName);
 
   const toggleClass = (status):string => ((status === 'active') ? 'default' : 'active');
   useEffect(() => {
     sidebarCollection.map((sidebar) => {
-      if(asPath.startsWith(sidebar.baseUrl, 1)){
+      if (asPath.startsWith(sidebar.baseUrl, 1)) {
         setSidebar(sidebar);
       }
-    })
+    });
   }, [asPath]);
 
   const changeSelect = (itemId):void => {
@@ -141,7 +139,7 @@ const Sidebar:FC<Props> = ({ location, isOpen, toggleSidebar } : Props) => {
             status: (asPath.startsWith(sidebar.baseUrl)) ? 'active' : 'default',
           })),
         })),
-      }
+      },
     );
   };
 
@@ -166,9 +164,8 @@ const Sidebar:FC<Props> = ({ location, isOpen, toggleSidebar } : Props) => {
       </h2>
       <ul className="sidebar__block-content">
         {
-          sidebar.items.map((item)=> {
-            return <Menu key={sidebar.id} itemsMenu={item} clickHandler={changeSelect} />
-          })
+          sidebar.items
+            .map((item) => <Menu key={sidebar.id} itemsMenu={item} clickHandler={changeSelect} />)
         }
       </ul>
     </aside>
