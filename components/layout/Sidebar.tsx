@@ -1,7 +1,11 @@
-import { FC, useState } from 'react';
 import {
-  faFile, faFileAlt,
+  FC, MouseEventHandler, useEffect, useState,
+} from 'react';
+import {
+  faFile, faFileAlt, faTimes,
 } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Menu from './Menu';
 
 const itemsForSidebarInitial = {
@@ -17,7 +21,7 @@ const itemsForSidebarInitial = {
         {
           title: 'Solicitudes',
           status: 'default',
-          link: './asesorias/solicitudes',
+          link: '/asesorias/solicitudes',
         },
         {
           title: 'Contratos',
@@ -35,15 +39,25 @@ const itemsForSidebarInitial = {
 };
 
 type Props = {
-  location?: string
+  location?: string,
+  isOpen?: boolean,
+  toggleSidebar?: MouseEventHandler,
 }
+
+// Clases de sidebar abierto y cerrado
+const openClassName = 'sidebar--open';
+const closedClassName = 'sidebar--closed';
 
 const defaultProps:Partial<Props> = {
   location: '/',
+  isOpen: false,
+  toggleSidebar: null,
 };
 
-const Sidebar:FC<Props> = ({ location }:Props) => {
+const Sidebar:FC<Props> = ({ location, isOpen, toggleSidebar } : Props) => {
   const [itemsSidebar, setItemsSidebar] = useState(itemsForSidebarInitial);
+
+  const [className, setClassName] = useState(closedClassName);
   const toggleClass = (status):string => ((status === 'active') ? 'default' : 'active');
   const changeSelect = (itemId):void => {
     setItemsSidebar({
@@ -58,8 +72,23 @@ const Sidebar:FC<Props> = ({ location }:Props) => {
       })),
     });
   };
+
+  useEffect(() => {
+    if (isOpen) setClassName(openClassName);
+    else setClassName(closedClassName);
+  }, [isOpen]);
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${className}`}>
+      <header className="headerMenu">
+        <div className="headerMenu__logo">
+          <Image src="/img/numeral-logo-header.svg" layout="fill" className="headerMenu__logo" />
+        </div>
+        <button onClick={toggleSidebar} type="button" className="headerMenu__close">
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+      </header>
+
       <h2 className="sidebar__block-title">
         {itemsSidebar.title}
       </h2>
