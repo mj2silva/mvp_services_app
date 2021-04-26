@@ -1,7 +1,11 @@
-import { FC, useEffect, useState } from 'react';
 import {
-  faFile, faFileAlt,
+  FC, MouseEventHandler, useEffect, useState,
+} from 'react';
+import {
+  faFile, faFileAlt, faTimes,
 } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
@@ -41,7 +45,7 @@ const defaultSidebar:Sidebar = {
         {
           label: 'Solicitudes',
           status: 'default',
-          path: '/asesorias/solicitudes',
+          path: 'asesorias/solicitudes',
         },
         {
           label: 'Contratos',
@@ -91,12 +95,31 @@ const sidebarCollection:Sidebar[] = [
     ]
   }
 ];
+        
+type Props = {
+  location?: string,
+  isOpen?: boolean,
+  toggleSidebar?: MouseEventHandler,
+}
 
-const Sidebar:FC = () => {
+// Clases de sidebar abierto y cerrado
+const openClassName = 'sidebar--open';
+const closedClassName = 'sidebar--closed';
+
+const defaultProps:Partial<Props> = {
+  location: '/',
+  isOpen: false,
+  toggleSidebar: null,
+};
+
+const Sidebar:FC<Props> = ({ location, isOpen, toggleSidebar } : Props) => {
   const router = useRouter();
   const { asPath } = router;
   const [sidebar, setSidebar] = useState<Sidebar>(defaultSidebar);
   const [sidebarInitial, setSidebarInitial] = useState<Sidebar>(sidebar);
+  const [itemsSidebar, setItemsSidebar] = useState(itemsForSidebarInitial);
+  const [className, setClassName] = useState(closedClassName);
+
   const toggleClass = (status):string => ((status === 'active') ? 'default' : 'active');
   useEffect(() => {
     sidebarCollection.map((sidebar) => {
@@ -121,8 +144,23 @@ const Sidebar:FC = () => {
       }
     );
   };
+
+  useEffect(() => {
+    if (isOpen) setClassName(openClassName);
+    else setClassName(closedClassName);
+  }, [isOpen]);
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${className}`}>
+      <header className="headerMenu">
+        <div className="headerMenu__logo">
+          <Image src="/img/numeral-logo-header.svg" layout="fill" className="headerMenu__logo" />
+        </div>
+        <button onClick={toggleSidebar} type="button" className="headerMenu__close">
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+      </header>
+
       <h2 className="sidebar__block-title">
         {sidebar.name}
       </h2>

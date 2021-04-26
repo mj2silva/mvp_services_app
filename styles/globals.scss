@@ -1,9 +1,13 @@
+// Commons
 @import "./globals/color.scss";
 @import "./globals/fonts.scss";
 @import "./globals/sizes.scss";
+
+// Componentes
 @import "./components/dashboard.scss";
 @import "./components/sidebar.scss";
 @import "./components/header.scss";
+@import "./components/headerMenu.scss";
 @import "./components/search-bar.scss";
 @import "./components/accountsForm.scss";
 @import "./components/section.scss";
@@ -18,6 +22,8 @@
 @import "./components/loading.scss";
 @import "./components/config.scss";
 @import "./components/no-requests.scss";
+@import "./components/modal";
+@import "./components/form";
 
 body {
   padding: 0;
@@ -26,20 +32,35 @@ body {
 }
 
 .container{
-  // display: grid;
-  // grid-template-rows: $headerHeight auto;
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
 }
 
-img {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -ms-user-select:none;
-}
-
 html {
   font-size: 16px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $cl-gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $cl-dark-gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $cl-dark-gray-soft;
+}
+
+button {
+  outline: none;
 }
