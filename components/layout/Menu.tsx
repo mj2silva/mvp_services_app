@@ -2,21 +2,11 @@ import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import LinkSidebar from './LinkSidebar';
+import { ItemSidebar } from './Sidebar';
 
 type Props = {
-
   clickHandler:Function,
-  itemsMenu: {
-    id: number,
-    title: string,
-    icon: IconProp,
-    iconHover: IconProp,
-    status: string,
-    items: {
-      link: string,
-      title: string
-    }[]
-  }
+  itemsMenu: ItemSidebar
 }
 
 const Menu:FC<Props> = ({ itemsMenu, clickHandler }:Props) => (
@@ -32,8 +22,8 @@ const Menu:FC<Props> = ({ itemsMenu, clickHandler }:Props) => (
     </div>
     <ul className="sidebar__block-item-subitems-container">
       {
-      itemsMenu.items.map((item) => (
-        <LinkSidebar key={item.title} to={item.link}>{item.title}</LinkSidebar>
+      itemsMenu.subitems.map((subitem) => (
+        <LinkSidebar key={subitem.label} to={`./${subitem.path}`}>{subitem.label}</LinkSidebar>
       ))
     }
     </ul>

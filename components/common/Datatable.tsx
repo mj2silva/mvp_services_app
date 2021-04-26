@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { ServiceRequest } from '../../lib/types';
 import Table, { TableContent } from './Table';
 
 type Props = {
