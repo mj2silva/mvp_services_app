@@ -1,7 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import {
-  faFile, faFileAlt,
+  FC, MouseEventHandler, useEffect, useState,
+} from 'react';
+import {
+  faFile, faFileAlt, faTimes,
 } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
@@ -121,8 +126,23 @@ const Sidebar:FC = () => {
       }
     );
   };
+
+  useEffect(() => {
+    if (isOpen) setClassName(openClassName);
+    else setClassName(closedClassName);
+  }, [isOpen]);
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${className}`}>
+      <header className="headerMenu">
+        <div className="headerMenu__logo">
+          <Image src="/img/numeral-logo-header.svg" layout="fill" className="headerMenu__logo" />
+        </div>
+        <button onClick={toggleSidebar} type="button" className="headerMenu__close">
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+      </header>
+
       <h2 className="sidebar__block-title">
         {sidebar.name}
       </h2>
