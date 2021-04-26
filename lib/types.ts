@@ -1,3 +1,4 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { ReactNode } from 'react';
 
 enum Grade {
@@ -48,3 +49,4 @@ export type ServiceRequest = {
   date: Date,
   code: string,
 }
+
