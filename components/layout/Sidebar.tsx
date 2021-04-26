@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import {
-  faFile, faFileAlt,
+  faFile, faFileAlt,faMapMarkerAlt,faShieldAlt,faCog
 } from '@fortawesome/free-solid-svg-icons';
 import Menu from './Menu';
 import { useRouter } from 'next/router';
@@ -12,6 +12,7 @@ export type ItemSidebar = {
   icon: IconProp,
   iconHover: IconProp,
   status: string,
+  path: string,
   subitems: {
     label: string,
     status: string,
@@ -37,11 +38,12 @@ const defaultSidebar:Sidebar = {
       icon: faFile,
       iconHover: faFileAlt,
       status: 'default',
+      path: 'asesorias',
       subitems: [
         {
           label: 'Solicitudes',
           status: 'default',
-          path: '/asesorias/solicitudes',
+          path: 'asesorias/solicitudes',
         },
         {
           label: 'Contratos',
@@ -66,26 +68,32 @@ const sidebarCollection:Sidebar[] = [
     items: [
       {
         id: 1,
-        title: 'Configuración',
-        icon: faFile,
-        iconHover: faFileAlt,
-        status: 'default',
+        title: 'General',
+        icon: faCog,
+        iconHover: faCog,
+        status: 'no-menu',
+        path: '/configuracion',
         subitems: [
-          {
-            label: 'General',
-            status: 'default',
-            path: '.configuracion',
-          },
-          {
-            label: 'Seguridad',
-            status: 'default',
-            path: 'configuracion',
-          },
-          {
-            label: 'Ubicación',
-            status: 'default',
-            path: 'configuracion',
-          },
+        ],
+      },
+      {
+        id: 2,
+        title: 'Seguridad',
+        icon: faShieldAlt,
+        iconHover: faShieldAlt,
+        status: 'no-menu',
+        path: '/configuracion',
+        subitems: [
+        ],
+      },
+      {
+        id: 3,
+        title: 'Ubicación',
+        icon: faMapMarkerAlt,
+        iconHover: faMapMarkerAlt,
+        status: 'no-menu',
+        path: '/configuracion',
+        subitems: [
         ],
       },
     ]
@@ -97,7 +105,12 @@ const Sidebar:FC = () => {
   const { asPath } = router;
   const [sidebar, setSidebar] = useState<Sidebar>(defaultSidebar);
   const [sidebarInitial, setSidebarInitial] = useState<Sidebar>(sidebar);
-  const toggleClass = (status):string => ((status === 'active') ? 'default' : 'active');
+  const toggleClass = (status):string => {
+    if(status === 'active') return 'default';
+    else if (status === 'no-menu') return 'no-menu';
+    return 'active';
+    //(status === 'active') ? 'default' : 'active'
+  };
   useEffect(() => {
     sidebarCollection.map((sidebar) => {
       if(asPath.startsWith(sidebar.baseUrl, 1)){
@@ -112,7 +125,7 @@ const Sidebar:FC = () => {
         ...sidebar,
         items: sidebar.items.map((item) => ({
           ...item,
-          status: (item.id === itemId) ? toggleClass(item.status) : 'default',
+          status: (item.id === itemId) ? toggleClass(item.status) : item.status,
           subitems: item.subitems.map((subitem) => ({
             ...subitem,
             status: (asPath.startsWith(sidebar.baseUrl)) ? 'active' : 'default',
