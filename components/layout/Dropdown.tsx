@@ -3,6 +3,7 @@ import {
 } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Toggle from '../Dropdown/Toggle';
+import { useRouter } from 'next/router';
 
 type Props = {
     iconToggle: IconProp,
@@ -20,6 +21,12 @@ const Dropdown : FC<Props> = (props : Props) => {
   useEffect(() => {
     setIsOpen(openedId === id);
   }, [openedId, id]);
+
+  const router = useRouter();
+  useEffect(() => {
+    setIsOpen(false);
+  }, [router.asPath]);
+  
   return (
     <>
       <Toggle iconToggle={iconToggle} onClick={onClick} />

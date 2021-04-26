@@ -63,7 +63,8 @@ const Menu: FC = () => (
     <div className="dashboard__menu-options-container">
       {
         optionsForMenu.options.map((option) => (
-          <MenuOption key={option.label} icon={option.icon} to={option.to} label={option.label} />
+          <MenuOption 
+          key={option.label} icon={option.icon} to={option.to} label={option.label} />
         ))
       }
     </div>
