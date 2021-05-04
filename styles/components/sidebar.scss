@@ -35,6 +35,9 @@
           display: initial;
         }
       }
+      &--active{
+        background-color: $cl-secondary;
+      }
       &-container{
         list-style: none;
         text-decoration: none;
@@ -83,7 +86,7 @@
   }
 }
 
-.sidebar__block-item-active{
+.sidebar__block-item--active{
   &~ .sidebar__block-item-subitems-container{
     height: fit-content;
     animation-name: acordion;

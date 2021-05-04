@@ -7,13 +7,14 @@ import { useRouter } from 'next/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export type ItemSidebar = {
-  id: number,
+  id: string,
   title: string,
   icon: IconProp,
   iconHover: IconProp,
   status: string,
   path: string,
   subitems: {
+    id: string,
     label: string,
     status: string,
     path: string
@@ -21,19 +22,19 @@ export type ItemSidebar = {
 }
 
 export type Sidebar = {
-  id: number, 
+  id: string, 
   name: string,
   baseUrl: string,
   items: ItemSidebar[]
 }
 
 const defaultSidebar:Sidebar = {
-  id: 0,
+  id: '0',
   name: 'Servicios',
   baseUrl:'/',
   items: [
     {
-      id: 1,
+      id: '1',
       title: 'Asesorías',
       icon: faFile,
       iconHover: faFileAlt,
@@ -41,19 +42,38 @@ const defaultSidebar:Sidebar = {
       path: 'asesorias',
       subitems: [
         {
+          id: '1',
           label: 'Solicitudes',
           status: 'default',
           path: 'asesorias/solicitudes',
         },
         {
+          id: '2',
           label: 'Contratos',
           status: 'default',
           path: 'test-academico',
         },
         {
+          id: '3',
           label: 'Reportes',
           status: 'default',
           path: 'posttest-academico',
+        },
+      ],
+    },
+    {
+      id: '2',
+      title: 'Test',
+      icon: faFile,
+      iconHover: faFileAlt,
+      status: 'default',
+      path: 'test',
+      subitems: [
+        {
+          id: '1',
+          label: 'test subitem',
+          status: 'default',
+          path: 'test/subitem',
         },
       ],
     },
@@ -63,11 +83,11 @@ const defaultSidebar:Sidebar = {
 const sidebarCollection:Sidebar[] = [
   {
     name: 'Configuración',
-    id: 1,
+    id: '1',
     baseUrl:'configuracion',
     items: [
       {
-        id: 1,
+        id: '1',
         title: 'General',
         icon: faCog,
         iconHover: faCog,
@@ -77,17 +97,17 @@ const sidebarCollection:Sidebar[] = [
         ],
       },
       {
-        id: 2,
+        id: '2',
         title: 'Seguridad',
         icon: faShieldAlt,
         iconHover: faShieldAlt,
         status: 'no-menu',
-        path: '/configuracion',
+        path: '/',
         subitems: [
         ],
       },
       {
-        id: 3,
+        id: '3',
         title: 'Ubicación',
         icon: faMapMarkerAlt,
         iconHover: faMapMarkerAlt,
@@ -104,7 +124,7 @@ const Sidebar:FC = () => {
   const router = useRouter();
   const { asPath } = router;
   const [sidebar, setSidebar] = useState<Sidebar>(defaultSidebar);
-  const [sidebarInitial, setSidebarInitial] = useState<Sidebar>(sidebar);
+  // const [sidebarInitial, setSidebarInitial] = useState<Sidebar>(sidebar);
   const toggleClass = (status):string => {
     if(status === 'active') return 'default';
     else if (status === 'no-menu') return 'no-menu';
@@ -112,14 +132,18 @@ const Sidebar:FC = () => {
     //(status === 'active') ? 'default' : 'active'
   };
   useEffect(() => {
-    sidebarCollection.map((sidebar) => {
-      if(asPath.startsWith(sidebar.baseUrl, 1)){
-        setSidebar(sidebar);
+    sidebarCollection.map((sdb) => {
+      console.log(asPath);
+      console.log(sidebar.baseUrl);
+      console.log(asPath.startsWith(sdb.baseUrl,1));
+      if(asPath.startsWith(sdb.baseUrl, 1)){
+        setSidebar(sdb);
       }
     })
   }, [asPath]);
 
   const changeSelect = (itemId):void => {
+    // setSidebarInitial(sidebar);
     setSidebar(
       {
         ...sidebar,
@@ -128,11 +152,12 @@ const Sidebar:FC = () => {
           status: (item.id === itemId) ? toggleClass(item.status) : item.status,
           subitems: item.subitems.map((subitem) => ({
             ...subitem,
-            status: (asPath.startsWith(sidebar.baseUrl)) ? 'active' : 'default',
+            status: (asPath.startsWith(`/${subitem.path}`)) ? 'active' : 'default',
           })),
         })),
       }
     );
+
   };
   return (
     <aside className="sidebar">
@@ -142,7 +167,7 @@ const Sidebar:FC = () => {
       <ul className="sidebar__block-content">
         {
           sidebar.items.map((item)=> {
-            return <Menu key={sidebar.id} itemsMenu={item} clickHandler={changeSelect} />
+            return <Menu key={item.id} itemsMenu={item} clickHandler={changeSelect} />
           })
         }
       </ul>

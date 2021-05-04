@@ -11,7 +11,7 @@ type Props = {
 
 const Menu:FC<Props> = ({ itemsMenu, clickHandler }:Props) => (
   <li className="sidebar__block-item-container">
-    <div role="button" tabIndex={itemsMenu.id} className={`sidebar__block-item sidebar__block-item-${itemsMenu.status}`} onKeyUp={() => clickHandler(itemsMenu.id)} onClick={() => clickHandler(itemsMenu.id)}>
+    <div role="button" tabIndex={parseInt(itemsMenu.id)} className={`sidebar__block-item sidebar__block-item--${itemsMenu.status}`} onKeyUp={() => clickHandler(itemsMenu.id)} onClick={() => clickHandler(itemsMenu.id)}>
       <div className="sidebar__block-item-ico-container">
         <FontAwesomeIcon icon={itemsMenu.icon} className="sidebar__block-item-ico" />
       </div>
@@ -23,7 +23,7 @@ const Menu:FC<Props> = ({ itemsMenu, clickHandler }:Props) => (
     <ul className="sidebar__block-item-subitems-container">
       {
       itemsMenu.subitems.map((subitem) => (
-        <LinkSidebar key={subitem.label} to={`./${subitem.path}`}>{subitem.label}</LinkSidebar>
+        <LinkSidebar status={subitem.status} key={`${itemsMenu.id}${subitem.id}`} to={`/${subitem.path}`}>{subitem.label}</LinkSidebar>
       ))
     }
     </ul>
