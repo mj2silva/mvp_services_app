@@ -1,7 +1,8 @@
-import { FC, useEffect, useState } from 'react';
 import {
   faFile, faFileAlt,
 } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Menu from './Menu';
@@ -19,14 +20,14 @@ export type ItemSidebar = {
   }[]
 }
 
-export type Sidebar = {
+export type SiderbarStructure = {
   id: number,
   name: string,
   baseUrl: string,
   items: ItemSidebar[]
 }
 
-const defaultSidebar:Sidebar = {
+const defaultSidebar: SiderbarStructure = {
   id: 0,
   name: 'Servicios',
   baseUrl: '/',
@@ -41,7 +42,7 @@ const defaultSidebar:Sidebar = {
         {
           label: 'Solicitudes',
           status: 'default',
-          path: '/asesorias/solicitudes',
+          path: 'asesorias/solicitudes',
         },
         {
           label: 'Contratos',
@@ -58,7 +59,7 @@ const defaultSidebar:Sidebar = {
   ],
 };
 
-const sidebarCollection:Sidebar[] = [
+const sidebarCollection: SiderbarStructure[] = [
   {
     name: 'Configuración',
     id: 1,
@@ -92,30 +93,44 @@ const sidebarCollection:Sidebar[] = [
   },
 ];
 
-const Sidebar:FC = () => {
+type Props = {
+  isOpen?: boolean,
+  toggleSidebar?: MouseEventHandler,
+}
+
+const defaultProps: Partial<Props> = {
+  isOpen: false,
+  toggleSidebar: null,
+};
+// Clases de sidebar abierto y cerrado
+const openClassName = 'sidebar--open';
+const closedClassName = 'sidebar--closed';
+
+const Sidebar: FC<Props> = ({ isOpen, toggleSidebar } : Props) => {
   const router = useRouter();
   const { asPath } = router;
-  const [sidebar, setSidebar] = useState<Sidebar>(defaultSidebar);
-  const [sidebarInitial, setSidebarInitial] = useState<Sidebar>(sidebar);
-  const toggleClass = (status):string => ((status === 'active') ? 'default' : 'active');
+  const [currentSidebar, setCurrentSidebar] = useState<SiderbarStructure>(defaultSidebar);
+  const [className, setClassName] = useState(closedClassName);
+
+  const toggleClass = (status): string => ((status === 'active') ? 'default' : 'active');
   useEffect(() => {
-    sidebarCollection.map((sidebar) => {
-      if (asPath.startsWith(sidebar.baseUrl, 1)) {
-        setSidebar(sidebar);
+    sidebarCollection.forEach((sidebarItem) => {
+      if (asPath.startsWith(sidebarItem.baseUrl, 1)) {
+        setCurrentSidebar(sidebarItem);
       }
     });
   }, [asPath]);
 
-  const changeSelect = (itemId):void => {
-    setSidebar(
+  const changeSelect = (itemId: number):void => {
+    setCurrentSidebar(
       {
-        ...sidebar,
-        items: sidebar.items.map((item) => ({
+        ...currentSidebar,
+        items: currentSidebar.items.map((item) => ({
           ...item,
           status: (item.id === itemId) ? toggleClass(item.status) : 'default',
           subitems: item.subitems.map((subitem) => ({
             ...subitem,
-            status: (asPath.startsWith(sidebar.baseUrl)) ? 'active' : 'default',
+            status: (asPath.startsWith(currentSidebar.baseUrl)) ? 'active' : 'default',
           })),
         })),
       },
@@ -124,15 +139,24 @@ const Sidebar:FC = () => {
   return (
     <aside className="sidebar">
       <h2 className="sidebar__block-title">
-        {sidebar.name}
+        {currentSidebar.name}
       </h2>
       <ul className="sidebar__block-content">
         {
-          sidebar.items.map((item) => <Menu key={sidebar.id} itemsMenu={item} clickHandler={changeSelect} />)
+          currentSidebar.items
+            .map((item) => (
+              <Menu
+                key={currentSidebar.id}
+                itemsMenu={item}
+                clickHandler={changeSelect}
+              />
+            ))
         }
       </ul>
     </aside>
   );
 };
+
+Sidebar.defaultProps = defaultProps;
 
 export default Sidebar;
