@@ -16,6 +16,7 @@ const Solicitudes:FC = () => {
   const getFBServiceRequests = async () => {
     const sr = await getCollection('serviceRequests');
     setServiceRequests(sr);
+    console.log(sr);
   };
   useEffect(() => {
     getFBServiceRequests();
@@ -34,11 +35,11 @@ const Solicitudes:FC = () => {
       row: request.map((value) => (
         [
           value.codigo,
-          value.service_date.seconds,
-          value.service_date.seconds,
+          value.service_date.toDate().toISOString(),
+          value.service_date.toDate().toISOString(),
           value.serviceType,
           <button type="button" className="table__button" onClick={openModal}>Ver</button>,
-          <div className="badge-container"><span className={`badge badge--${value.status}`}>{value.status}</span></div>,
+          <div className="badge-container"><span className={`badge badge--${value.status.toLowerCase()}`}>{value.status}</span></div>,
         ]
       )),
     },

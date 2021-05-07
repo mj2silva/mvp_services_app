@@ -5,7 +5,7 @@ export async function getCollection(collection) {
     const querySnapshot = await firestore.collection(collection).get();
     // console.log(querySnapshot.docs);
     const collections = [];
-    querySnapshot.forEach((doc) => {
+    querySnapshot.docs.forEach((doc) => {
       collections.push({
         ...doc.data(),
         id: doc.id,
