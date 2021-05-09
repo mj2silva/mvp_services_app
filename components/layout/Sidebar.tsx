@@ -1,39 +1,40 @@
 import { FC, useEffect, useState } from 'react';
 import {
-  faFile, faFileAlt,faMapMarkerAlt,faShieldAlt,faCog
+  faFile, faFileAlt, faMapMarkerAlt, faShieldAlt, faCog,
 } from '@fortawesome/free-solid-svg-icons';
-import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import Menu from './Menu';
 
 export type ItemSidebar = {
-  id: number,
+  id: string,
   title: string,
   icon: IconProp,
   iconHover: IconProp,
   status: string,
   path: string,
   subitems: {
+    id: string,
     label: string,
     status: string,
     path: string
   }[]
 }
 
-export type Sidebar = {
-  id: number, 
+export type BuilderSidebar = {
+  id: string,
   name: string,
   baseUrl: string,
   items: ItemSidebar[]
 }
 
-const defaultSidebar:Sidebar = {
-  id: 0,
+const defaultSidebar:BuilderSidebar = {
+  id: '0',
   name: 'Servicios',
-  baseUrl:'/',
+  baseUrl: '/',
   items: [
     {
-      id: 1,
+      id: '1',
       title: 'Asesorías',
       icon: faFile,
       iconHover: faFileAlt,
@@ -41,85 +42,105 @@ const defaultSidebar:Sidebar = {
       path: 'asesorias',
       subitems: [
         {
+          id: '1',
           label: 'Solicitudes',
           status: 'default',
           path: 'asesorias/solicitudes',
         },
         {
+          id: '2',
           label: 'Contratos',
           status: 'default',
           path: 'test-academico',
         },
         {
+          id: '3',
           label: 'Reportes',
           status: 'default',
           path: 'posttest-academico',
         },
       ],
     },
-  ]
-}
+    {
+      id: '2',
+      title: 'Test',
+      icon: faFile,
+      iconHover: faFileAlt,
+      status: 'no-menu',
+      path: 'test',
+      subitems: [
+        {
+          id: '1',
+          label: 'test subitem',
+          status: 'default',
+          path: 'test/subitem',
+        },
+      ],
+    },
+  ],
+};
 
-const sidebarCollection:Sidebar[] = [
+const sidebarCollection:BuilderSidebar[] = [
   {
     name: 'Configuración',
-    id: 1,
-    baseUrl:'configuracion',
+    id: '1',
+    baseUrl: 'configuracion',
     items: [
       {
-        id: 1,
+        id: '1',
         title: 'General',
         icon: faCog,
         iconHover: faCog,
-        status: 'no-menu',
-        path: '/configuracion',
+        status: 'default',
+        path: '',
         subitems: [
         ],
       },
       {
-        id: 2,
+        id: '2',
         title: 'Seguridad',
         icon: faShieldAlt,
         iconHover: faShieldAlt,
         status: 'no-menu',
-        path: '/configuracion',
+        path: '/',
         subitems: [
         ],
       },
       {
-        id: 3,
+        id: '3',
         title: 'Ubicación',
         icon: faMapMarkerAlt,
         iconHover: faMapMarkerAlt,
         status: 'no-menu',
-        path: '/configuracion',
+        path: '/',
         subitems: [
         ],
       },
-    ]
-  }
+    ],
+  },
 ];
 
-const Sidebar:FC = () => {
+const Sidebar: FC = () => {
   const router = useRouter();
   const { asPath } = router;
-  const [sidebar, setSidebar] = useState<Sidebar>(defaultSidebar);
-  const [sidebarInitial, setSidebarInitial] = useState<Sidebar>(sidebar);
+  const [sidebar, setSidebar] = useState<BuilderSidebar>(defaultSidebar);
   const toggleClass = (status):string => {
-    if(status === 'active') return 'default';
-    else if (status === 'no-menu') return 'no-menu';
+    if (status === 'active') return 'default';
+    if (status === 'no-menu') return 'no-menu';
     return 'active';
-    //(status === 'active') ? 'default' : 'active'
+    // (status === 'active') ? 'default' : 'active'
   };
   useEffect(() => {
-    sidebarCollection.map((sidebar) => {
-      if(asPath.startsWith(sidebar.baseUrl, 1)){
-        setSidebar(sidebar);
+    sidebarCollection.forEach((sdb) => {
+      if (router.asPath.startsWith(sdb.baseUrl, 1)) {
+        setSidebar(sdb);
+      } else {
+        setSidebar(defaultSidebar);
       }
-    })
-  }, [asPath]);
+    });
+  }, [router.asPath]);
 
-  const changeSelect = (itemId):void => {
+  const changeSelect = (itemId: string):void => {
     setSidebar(
       {
         ...sidebar,
@@ -128,10 +149,10 @@ const Sidebar:FC = () => {
           status: (item.id === itemId) ? toggleClass(item.status) : item.status,
           subitems: item.subitems.map((subitem) => ({
             ...subitem,
-            status: (asPath.startsWith(sidebar.baseUrl)) ? 'active' : 'default',
+            status: (asPath.startsWith(`/${subitem.path}`)) ? 'active' : 'default',
           })),
         })),
-      }
+      },
     );
   };
   return (
@@ -141,9 +162,13 @@ const Sidebar:FC = () => {
       </h2>
       <ul className="sidebar__block-content">
         {
-          sidebar.items.map((item)=> {
-            return <Menu key={sidebar.id} itemsMenu={item} clickHandler={changeSelect} />
-          })
+          sidebar.items.map((item) => (
+            <Menu
+              key={item.id}
+              itemsMenu={item}
+              clickHandler={changeSelect}
+            />
+          ))
         }
       </ul>
     </aside>

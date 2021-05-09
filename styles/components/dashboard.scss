@@ -21,7 +21,7 @@
   &__menu{
     &-container{
       position: absolute;
-      top: 5.25rem;
+      top: 3.80rem;
       right: 1rem;
       margin: 0;
       width: 18rem;
@@ -29,6 +29,10 @@
       border-radius: 0.5rem;
       height: 0;
       overflow: hidden;
+      @media screen and (max-width: $breakpoint-tablet){
+        top: 2.95rem;
+      }
+      
       &--visible{
         padding: 0.5rem;
         height: fit-content;
@@ -42,6 +46,7 @@
         padding-bottom: 0;
         animation-name: menu--hidden;
         animation-duration: 0.5s;
+        animation-timing-function: linear;
       }
     }
     &-profile{
@@ -137,6 +142,7 @@
         cursor: pointer;
         border: none;
         outline: none;
+        min-width: 2.25rem;
       }
       &-icon{
         font-size: 1.25rem;
@@ -161,6 +167,7 @@
         height: fit-content;
         animation-name: menu--visible;
         animation-duration: 0.5s;
+        animation-timing-function: linear;
       }
     }
   }
@@ -171,7 +178,7 @@
     height: 0;
   }
   to{
-    height: 5rem;
+    height: 25rem;
   }
 }
 
