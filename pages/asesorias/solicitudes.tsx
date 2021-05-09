@@ -35,8 +35,8 @@ const Solicitudes:FC = () => {
       row: request.map((value) => (
         [
           value.codigo,
-          value.service_date.toDate().toISOString(),
-          value.service_date.toDate().toISOString(),
+          value.service_date.toDate().toISOString().slice(0, value.service_date.toDate().toISOString().lastIndexOf('T')),
+          value.service_date.toDate().toLocaleTimeString().slice(0, value.service_date.toDate().toLocaleTimeString().lastIndexOf(':')),
           value.serviceType,
           <button type="button" className="table__button" onClick={openModal}>Ver</button>,
           <div className="badge-container"><span className={`badge badge--${value.status.toLowerCase()}`}>{value.status}</span></div>,
