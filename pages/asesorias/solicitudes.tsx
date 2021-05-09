@@ -1,27 +1,32 @@
 import { FC, useEffect, useState } from 'react';
 import { getServiceRequests, readTopics } from '../../lib/serviceRequestsApi';
 import { ServiceRequest } from '../../lib/types';
-
+import { getCollection } from '../../lib/collectionsApi';
 import Spinner from '../../components/Loading/Spinner';
 import Datatable from '../../components/common/Datatable';
-//import Modal from '../../components/modal/Modal';
-//import NewRequestForm from '../../components/forms/NewRequestForm';
+import Modal from '../../components/modal/Modal';
+import NewRequestForm from '../../components/forms/NewRequestForm';
 import { TableContent } from '../../components/common/Table';
 //import { readTopics } from 'firebase/firebase';
 
 
 const Solicitudes:FC = () => {
-  const [serviceRequests, setServiceRequests] = useState<ServiceRequest[]>(null);
+  const [serviceRequests, setServiceRequests] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const openModal = () : void => setIsModalOpen(true);
   const closeModal = () : void => setIsModalOpen(false);
-
+  const getFBServiceRequests = async () => {
+    const sr = await getCollection('serviceRequests');
+    setServiceRequests(sr);
+    console.log(sr);
+  };
   useEffect(() => {
-    const getRequests = async ():Promise<void> => {
-      const newServiceRequests = await readTopics();
-      readTopics(newServiceRequests);
-    };
-    getRequests();
+    getFBServiceRequests();
+    // const getRequests = async ():Promise<void> => {
+    //   const newServiceRequests = await getServiceRequests();
+    //   setServiceRequests(newServiceRequests);
+    // };
+    // getRequests();
   }, []);
 
   const tableConstructor = ['Código', 'Fecha', 'Hora', 'Descripción', 'Detalle', 'Estado'];
@@ -31,11 +36,11 @@ const Solicitudes:FC = () => {
     data: {
       row: request.map((value) => (
         [
-          value.code,
-          value.date.toLocaleTimeString().slice(0, value.date.toLocaleTimeString().lastIndexOf(':')),
-          value.date.toLocaleDateString(),
-          value.service.name,
-          <button type="button" className="table__button">Ver</button>,
+          value.codigo,
+          value.service_date.toDate().toISOString().slice(0, value.service_date.toDate().toISOString().lastIndexOf('T')),
+          value.service_date.toDate().toLocaleTimeString().slice(0, value.service_date.toDate().toLocaleTimeString().lastIndexOf(':')),
+          value.serviceType,
+          <button type="button" className="table__button" onClick={openModal}>Ver</button>,
           <div className="badge-container"><span className={`badge badge--${value.status.toLowerCase()}`}>{value.status}</span></div>,
         ]
       )),
@@ -60,7 +65,14 @@ const Solicitudes:FC = () => {
             </div>
           )
       }
-      
+      <Modal
+        title="Solicitar un asesor académico"
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        popupWarningOnClose={false}
+      >
+        <NewRequestForm />
+      </Modal>
     </>
   );
 };

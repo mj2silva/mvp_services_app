@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import Layout from '../components/layout/Layout';
 import Authentication from '../components/authentication/Authentication';
+import '../lib/firebase';
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }:AppProps):ReactElement {
