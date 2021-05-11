@@ -3,14 +3,14 @@ import { firestore } from './firebase';
 export async function getCollection(collection) {
   try {
     const querySnapshot = await firestore.collection(collection).get();
-    const collections = [];
+    const documents = [];
     querySnapshot.docs.forEach((doc) => {
-      collections.push({
+      documents.push({
         ...doc.data(),
         id: doc.id,
       });
     });
-    return collections;
+    return documents;
   } catch (error) {
     console.log(error);
   }
