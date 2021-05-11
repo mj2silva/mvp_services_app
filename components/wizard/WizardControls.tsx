@@ -8,7 +8,6 @@ const WizardControls = () => {
   const isStart = () : boolean => currentPage === 1;
   return (
     <div className="form__controls">
-      <div>{`${currentPage} ${totalPages}` }</div>
       <button disabled={isStart()} onClick={goToPrevPage} className="form__button" type="submit">Anterior</button>
       {
         (isFinish())

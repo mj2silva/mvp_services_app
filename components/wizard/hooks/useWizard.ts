@@ -6,6 +6,16 @@ type Props = {
   onSubmit?: (data) => Promise<void> | void,
 }
 
+type WizardHook<T> = {
+  goToNextPage: () => Promise<void> | void,
+  goToPrevPage: () => Promise<void> | void,
+  goToPage: (pageNumber: number) => Promise<void> | void,
+  setTotalPages: (totalPages: number) => Promise<void> | void,
+  currentPage: number,
+  totalPages: number,
+  data: T | unknown,
+}
+
 const useWizard = (props: Props) => {
   const { totalPages: pagesCount, initialPage } = props;
   const [currentPage, setCurrentPage] = useState<number>(initialPage || 1);
