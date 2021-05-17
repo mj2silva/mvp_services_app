@@ -6,6 +6,8 @@ import Select from './formElements/Select';
 import Input from './formElements/Input';
 import DatePicker from './formElements/DatePicker';
 import TimePicker from './formElements/TimePicker';
+import Wizard from '../wizard/Wizard';
+import WizardStep from '../wizard/WizardStep';
 
 type SelectOption = {
   label: string,
@@ -42,41 +44,110 @@ const NewRequestForm: FC = () => {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...formMethods}>
-      <form className="form" onSubmit={formMethods.handleSubmit(onSubmit)}>
-        <div className="form__fields">
-          <Select
-            name="service"
-            label="Servicio"
-            options={[{ label: 'Asesoria personal', value: '01' }]}
-          />
-          <Select
-            name="modality"
-            label="Modalidad"
-            options={[{ label: 'Presencial', value: '01' }, { label: 'Virtual', value: '02' }]}
-          />
-          <Input
-            label="Contexto"
-            name="context"
-          />
-          <DatePicker
-            label="Fecha"
-            name="date"
-          />
-          <TimePicker
-            label="Hora inicio"
-            name="startTime"
-            size="medium"
-          />
-          <TimePicker
-            label="Hora fin"
-            name="finishTime"
-            size="medium"
-          />
-        </div>
-        <div className="form__controls">
-          <button className="form__button" type="submit">Guardar</button>
-        </div>
-      </form>
+      <Wizard>
+        <WizardStep pageNumber={1}>
+          <form className="form" onSubmit={formMethods.handleSubmit(onSubmit)}>
+            <div className="form__fields">
+              <Select
+                name="service"
+                label="Servicio"
+                options={[{ label: 'Asesoria personal', value: '01' }]}
+              />
+              <Select
+                name="modality"
+                label="Modalidad"
+                options={[{ label: 'Presencial', value: '01' }, { label: 'Virtual', value: '02' }]}
+              />
+              <Input
+                label="Contexto/Locación"
+                name="context"
+              />
+              <DatePicker
+                label="Fecha"
+                name="date"
+              />
+              <TimePicker
+                label="Hora inicio"
+                name="startTime"
+                size="medium"
+              />
+              <TimePicker
+                label="Hora fin"
+                name="finishTime"
+                size="medium"
+              />
+            </div>
+          </form>
+        </WizardStep>
+        <WizardStep pageNumber={2}>
+          <form className="form" onSubmit={formMethods.handleSubmit(onSubmit)}>
+            <div className="form__fields">
+              <Select
+                name="service"
+                label="Servicio"
+                options={[{ label: 'Asesoria personal', value: '01' }]}
+              />
+              <Select
+                name="modality"
+                label="Modalidad"
+                options={[{ label: 'Presencial', value: '01' }, { label: 'Virtual', value: '02' }]}
+              />
+              <Input
+                label="Contexto/Locación"
+                name="context"
+              />
+              <DatePicker
+                label="Fecha"
+                name="date"
+              />
+              <TimePicker
+                label="Hora inicio"
+                name="startTime"
+                size="medium"
+              />
+              <TimePicker
+                label="Hora fin"
+                name="finishTime"
+                size="medium"
+              />
+            </div>
+          </form>
+        </WizardStep>
+        <WizardStep pageNumber={3}>
+          <form className="form" onSubmit={formMethods.handleSubmit(onSubmit)}>
+            <div className="form__fields">
+              <Select
+                name="service"
+                label="Servicio"
+                options={[{ label: 'Asesoria personal', value: '01' }]}
+              />
+              <Select
+                name="modality"
+                label="Modalidad"
+                options={[{ label: 'Presencial', value: '01' }, { label: 'Virtual', value: '02' }]}
+              />
+              <Input
+                label="Contexto/Locación"
+                name="context"
+              />
+              <DatePicker
+                label="Fecha"
+                name="date"
+              />
+              <TimePicker
+                label="Hora inicio"
+                name="startTime"
+                size="medium"
+              />
+              <TimePicker
+                label="Hora fin"
+                name="finishTime"
+                size="medium"
+              />
+            </div>
+          </form>
+        </WizardStep>
+      </Wizard>
     </FormProvider>
   );
 };

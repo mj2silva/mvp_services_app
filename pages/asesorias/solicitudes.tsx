@@ -23,7 +23,7 @@ const Solicitudes:FC = () => {
     getRequests();
   }, []);
 
-  const tableConstructor = ['Código', 'Fecha', 'Hora', 'Descripción', 'Detalle', 'Estado'];
+  const tableConstructor = ['Código', 'Hora', 'Fecha', 'Descripción', 'Detalle', 'Estado'];
 
   const serviceRequestToTable = (requests: ServiceRequest[]):TableContent => ({
     headers: tableConstructor,
