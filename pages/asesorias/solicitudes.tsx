@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { getServiceRequests } from '../../lib/serviceRequestsApi';
 import { ServiceRequest } from '../../lib/types';
-import { getCollection } from '../../lib/collectionsApi';
 import Spinner from '../../components/Loading/Spinner';
 import Datatable from '../../components/common/Datatable';
 import Modal from '../../components/modal/Modal';
@@ -13,12 +12,9 @@ import { TableContent } from '../../components/common/Table';
 const Solicitudes:FC = () => {
   const [serviceRequests, setServiceRequests] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [isModalOpenVer, setIsModalOpenVer] = useState<boolean>(false);
   const openModal = () : void => setIsModalOpen(true);
   const closeModal = () : void => setIsModalOpen(false);
-  const openModalVer = () : void => setIsModalOpenVer(true);
-  const closeModalVer = () : void => setIsModalOpenVer(false);
-  
+
   useEffect(() => {
     const getRequests = async ():Promise<void> => {
       const newServiceRequests = await getServiceRequests();
@@ -71,8 +67,6 @@ const Solicitudes:FC = () => {
       >
         <NewRequestForm />
       </Modal>
-
-      
     </>
   );
 };

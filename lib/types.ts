@@ -1,5 +1,3 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { ReactNode } from 'react';
 import firebase from 'firebase';
 
 enum Grade {
@@ -62,9 +60,9 @@ export type ServiceRequestResponse = {
   context: string,
   place: string,
   schedule: string,
-  service_date: firebase.firestore.Timestamp,
+  serviceDate: firebase.firestore.Timestamp,
   metadata?: {
-    created_date: firebase.firestore.Timestamp,
+    createdDate: firebase.firestore.Timestamp,
   }
   serviceType: string,
   status: string,

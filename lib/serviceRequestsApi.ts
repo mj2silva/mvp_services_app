@@ -1,7 +1,5 @@
 import { ServiceRequest, ServiceRequestResponse } from './types';
-import { serviceRequests } from '../mock/asesorias';
 import { firestore } from './firebase';
-
 
 export const getServiceRequests = async () : Promise<ServiceRequest[]> => {
   const querySnapshot = await firestore.collection('serviceRequests').get();
@@ -13,9 +11,9 @@ export const getServiceRequests = async () : Promise<ServiceRequest[]> => {
       codigo: data.codigo,
       aditionalInfo: data.aditionalInfo,
       metadata: {
-        createdDate: new Date(data.metadata?.created_date?.toMillis()),
+        createdDate: new Date(data.metadata?.createdDate?.toMillis()),
       },
-      serviceDate: new Date(data.service_date?.toMillis()),
+      serviceDate: new Date(data.serviceDate?.toMillis()),
       serviceType: data.serviceType,
       status: data.status,
       parentInfo: data.parentInfo,
