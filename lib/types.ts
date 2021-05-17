@@ -1,5 +1,4 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { ReactNode } from 'react';
+import firebase from 'firebase';
 
 enum Grade {
   'PRIMERO',
@@ -39,7 +38,7 @@ export type Schedule = {
   finishTime: number,
 }
 
-export type ServiceRequest = {
+/*export type ServiceRequest = {
   id: string,
   serviceId: string
   service?: NumeralService,
@@ -48,5 +47,51 @@ export type ServiceRequest = {
   status: 'ACEPTADA' | 'PENDIENTE' | 'RECHAZADA',
   date: Date,
   code: string,
+}*/
+
+export type ServiceRequestsResponse = {
+  aditionalInfo: {
+    goal: string,
+    subject: string,
+    topic: string,
+  },
+  code:string,
+  metadata?: {
+    createdBy?: {
+      firstLastName: string,
+      firstName: string,
+      middleNames: string,
+      relationship: string,
+      secondLastName: string,
+    },
+    createdDate?: firebase.firestore.Timestamp,
+  }
+  serviceType: string,
+  serviceDate?: firebase.firestore.Timestamp,
+  status: string,
+  uid: string,
 }
 
+export type ServiceRequest = {
+  id: string,
+  aditionalInfo: {
+    goal: string,
+    subject: string,
+    topic: string,
+  },
+  code:string,
+  metadata?: {
+    createdBy?: {
+      firstLastName: string,
+      firstName: string,
+      middleNames: string,
+      relationship: string,
+      secondLastName: string,
+    },
+    createdDate?: Date,
+  }
+  serviceType: string,
+  serviceDate?: Date,
+  status: string,
+  uid: string,
+}
