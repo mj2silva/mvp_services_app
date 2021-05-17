@@ -6,39 +6,39 @@ import Spinner from '../../components/Loading/Spinner';
 import Datatable from '../../components/common/Datatable';
 import Modal from '../../components/modal/Modal';
 import NewRequestForm from '../../components/forms/NewRequestForm';
+import ServiceRequestDetail from '../../components/common/ServiceRequestDetail';
+
 import { TableContent } from '../../components/common/Table';
 
 const Solicitudes:FC = () => {
   const [serviceRequests, setServiceRequests] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpenVer, setIsModalOpenVer] = useState<boolean>(false);
   const openModal = () : void => setIsModalOpen(true);
   const closeModal = () : void => setIsModalOpen(false);
-  const getFBServiceRequests = async () => {
-    const sr = await getCollection('serviceRequests');
-    setServiceRequests(sr);
-    console.log(sr);
-  };
+  const openModalVer = () : void => setIsModalOpenVer(true);
+  const closeModalVer = () : void => setIsModalOpenVer(false);
+  
   useEffect(() => {
-    getFBServiceRequests();
-    // const getRequests = async ():Promise<void> => {
-    //   const newServiceRequests = await getServiceRequests();
-    //   setServiceRequests(newServiceRequests);
-    // };
-    // getRequests();
+    const getRequests = async ():Promise<void> => {
+      const newServiceRequests = await getServiceRequests();
+      setServiceRequests(newServiceRequests);
+    };
+    getRequests();
   }, []);
 
   const tableConstructor = ['Código', 'Fecha', 'Hora', 'Descripción', 'Detalle', 'Estado'];
 
-  const serviceRequestToTable = (request):TableContent => ({
+  const serviceRequestToTable = (requests: ServiceRequest[]):TableContent => ({
     headers: tableConstructor,
     data: {
-      row: request.map((value) => (
+      row: requests.map((value) => (
         [
           value.codigo,
-          value.service_date.toDate().toISOString().slice(0, value.service_date.toDate().toISOString().lastIndexOf('T')),
-          value.service_date.toDate().toLocaleTimeString().slice(0, value.service_date.toDate().toLocaleTimeString().lastIndexOf(':')),
+          value.serviceDate.toLocaleDateString(),
+          value.serviceDate.toLocaleTimeString().slice(0, value.serviceDate.toLocaleTimeString().lastIndexOf(':')),
           value.serviceType,
-          <button type="button" className="table__button" onClick={openModal}>Ver</button>,
+          <ServiceRequestDetail serviceRequest={value} />,
           <div className="badge-container"><span className={`badge badge--${value.status.toLowerCase()}`}>{value.status}</span></div>,
         ]
       )),
@@ -71,6 +71,8 @@ const Solicitudes:FC = () => {
       >
         <NewRequestForm />
       </Modal>
+
+      
     </>
   );
 };
