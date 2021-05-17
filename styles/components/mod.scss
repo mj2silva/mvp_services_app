@@ -1,0 +1,39 @@
+.accordion-container{
+    width: 100%;
+}
+
+.accordion-titulo {
+    position: relative;
+    display: block;
+    padding: 15px;
+    font-size: 16px;
+    background: $cl-secondary;
+    color: #fff;
+    text-decoration: none;
+}
+.accordion-titulo.open {
+    background: $cl-secondary-2;
+    color: #fff;
+}
+.accordion-titulo:hover {
+    background: $cl-secondary-2;
+}
+
+.accordion-content {
+    //display: none;
+    padding: 20px;
+    overflow: auto;
+}
+
+.arrowOpen {
+    float: right;
+}
+
+.arrowClose {
+    display: none;
+    float: right;
+}
+
+.lyrics{
+
+}
