@@ -6,7 +6,7 @@ import Datatable from '../../components/common/Datatable';
 import Modal from '../../components/modal/Modal';
 import NewRequestForm from '../../components/forms/NewRequestForm';
 import ServiceRequestDetail from '../../components/common/ServiceRequestDetail';
-import { shortDate, time12h, capitalize } from '../../lib/formatter';
+import { shortDate, time, capitalize } from '../../lib/formatter';
 
 import { TableContent } from '../../components/common/Table';
 
@@ -31,9 +31,9 @@ const Solicitudes:FC = () => {
     data: {
       row: requests.map((value) => (
         [
-          value.codigo,
-          time12h(value.serviceDate),
-          shortDate(value.serviceDate),
+          value.codigo || '-',
+          time(value.serviceDate) || '-',
+          shortDate(value.serviceDate) || '-',
           capitalize([value.serviceType, value.modality]),
           <ServiceRequestDetail serviceRequest={value} />,
           <div className="badge-container"><span className={`badge badge--${value.status.toLowerCase()}`}>{value.status}</span></div>,

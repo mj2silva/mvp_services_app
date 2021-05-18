@@ -8,23 +8,19 @@ export const capitalize = (str : string|string[]):string => {
 
 export const shortDate = (date : Date):string => {
   if (date.getDate()) {
-    return date.toLocaleDateString();
+    return date.toLocaleDateString('es-ES', { day: 'numeric', month: '2-digit', year: 'numeric' });
   }
-  return '-';
+  return null;
 };
 
-export const time12h = (date: Date):string => {
-  if (date.getDate()) {
-    // return date.toLocaleTimeString().slice(0, date.toLocaleTimeString().lastIndexOf(':'));
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+export const time = (date: Date|Date[], hour12:boolean = true):string => {
+  if (!Array.isArray(date)) {
+    if (date.getDate()) {
+      return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12 });
+    }
   }
-  return '-';
-};
-
-export const time24h = (date: Date):string => {
-  if (date.getDate()) {
-    // return date.toLocaleTimeString().slice(0, date.toLocaleTimeString().lastIndexOf(':'));
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: false });
+  if (Array.isArray(date)) {
+    return date.map((value) => (value.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12 }))).join(' - ');
   }
-  return '-';
+  return null;
 };
