@@ -22,64 +22,65 @@ const ServiceRequestDetail:FC<Props> = ({ serviceRequest}:Props) => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
       >
+      <div className="accordion">
         <div className="accordion-container">
 
-            <a className="accordion-titulo">Información del servicio
+            <a className="accordion-title">Información del servicio
               <FontAwesomeIcon className="arrowOpen" icon={faChevronDown} />
               <FontAwesomeIcon className="arrowClose" icon={faChevronUp} />
             </a>
             <ul className="accordion-content">
-                {serviceRequest.codigo}<br></br>
-                <li className="lyrics"> Servicio:{serviceRequest.serviceType}</li>
-                <li className="lyrics"> Modalidad: {serviceRequest.modality} </li>
-                <li className="lyrics">Contexto: {serviceRequest.context}</li>
-                <li className="lyrics">Lugar: {serviceRequest.place}</li>
-                <li className="lyrics">Fecha: {serviceRequest.serviceDate.toLocaleDateString()}</li>
-                <li className="lyrics">Horario: {serviceRequest.schedule}</li>
+                <li className="list"> Código: <span className="listConten">{serviceRequest.codigo}</span> </li>
+                <li className="list"> Servicio: <span className="listConten">{serviceRequest.serviceType}</span> </li>
+                <li className="list"> Modalidad: <span className="listConten">{serviceRequest.modality}</span> </li>
+                <li className="list"> Contexto: <span className="listConten">{serviceRequest.context}</span></li>
+                <li className="list"> Lugar: <span className="listConten">{serviceRequest.place}</span></li>
+                <li className="list"> Fecha: <span className="listConten">{serviceRequest.serviceDate.toLocaleDateString()}</span></li>
+                <li className="list"> Horario: <span className="listConten">{serviceRequest.schedule}</span></li>
             </ul>  
         </div>
         
-        <div>
-            <a className="accordion-titulo">Información del ...
+        <div className="accordion-container">
+            <a className="accordion-title">Información de la Asesoría
               <FontAwesomeIcon className="arrowOpen" icon={faChevronDown} />
               <FontAwesomeIcon className="arrowClose" icon={faChevronUp} />
             </a>
             <ul className="accordion-content">
-                <li className="lyrics">Objetivo: {serviceRequest.aditionalInfo.goal}</li>
-                <li className="lyrics">Tema: {serviceRequest.aditionalInfo.topic}</li>
-                <li className="lyrics">Asignatura: {serviceRequest.aditionalInfo.subject}</li>
+                <li className="list">Objetivo: <span className="listConten">{serviceRequest.aditionalInfo.goal}</span> </li>
+                <li className="list">Tema: <span className="listConten">{serviceRequest.aditionalInfo.topic}</span> </li>
+                <li className="list">Asignatura: <span className="listConten">{serviceRequest.aditionalInfo.subject}</span> </li>
             </ul>  
         </div>
         
-        <div>
-            <a className="accordion-titulo">Información del Estudiante
+        <div className="accordion-container">
+            <a className="accordion-title">Información del Estudiante
               <FontAwesomeIcon className="arrowOpen" icon={faChevronDown} />
               <FontAwesomeIcon className="arrowClose" icon={faChevronUp} />
             </a>
             <ul className="accordion-content">
-                <li className="lyrics">DNI: {serviceRequest.studentInfo?.dni}</li>
-                <li className="lyrics">Nombres: {serviceRequest.studentInfo?.firstName} {serviceRequest.studentInfo?.middleNames}</li>
-                <li className="lyrics">Apellidos: {serviceRequest.studentInfo?.firstLastName} {serviceRequest.studentInfo?.secondLastName}</li>
-                <li className="lyrics">Institución Educativa: {serviceRequest.studentInfo?.school}</li>
-                <li className="lyrics">Grado: {serviceRequest.studentInfo?.grade}</li>
-                <li className="lyrics">Nivel: {serviceRequest.studentInfo?.level}</li>
+                <li className="list">DNI: <span className="listConten">{serviceRequest.studentInfo?.dni}</span> </li>
+                <li className="list">Nombres: <span className="listConten">{serviceRequest.studentInfo?.firstName} {serviceRequest.studentInfo?.middleNames}</span> </li>
+                <li className="list">Apellidos: <span className="listConten">{serviceRequest.studentInfo?.firstLastName} {serviceRequest.studentInfo?.secondLastName}</span> </li>
+                <li className="list">Institución Educativa: <span className="listConten">{serviceRequest.studentInfo?.school}</span> </li>
+                <li className="list">Grado: <span className="listConten">{serviceRequest.studentInfo?.grade}</span> </li>
+                <li className="list">Nivel: <span className="listConten">{serviceRequest.studentInfo?.level}</span> </li>
             </ul>  
         </div>
 
-        <div>
-            <a className="accordion-titulo">Información del Apoderado
+        <div className="accordion-container">
+            <a className="accordion-title">Información del Apoderado
               <FontAwesomeIcon className="arrowOpen" icon={faChevronDown} />
               <FontAwesomeIcon className="arrowClose" icon={faChevronUp} />
             </a>
             <ul className="accordion-content">
-                <li className="lyrics">Parentesco: {serviceRequest.parentInfo?.relationship}</li>
-                <li className="lyrics">Nombres: {serviceRequest.parentInfo?.firstName} {serviceRequest.parentInfo?.middleNames}</li>
-                <li className="lyrics">Apellidos: {serviceRequest.parentInfo?.firstLastName} {serviceRequest.parentInfo?.secondLastName}</li>
-                <li className="lyrics">Contacto: {serviceRequest.parentInfo?.contact}</li>
+                <li className="list">Parentesco: <span className="listConten">{serviceRequest.parentInfo?.relationship}</span> </li>
+                <li className="list">Nombres: <span className="listConten">{serviceRequest.parentInfo?.firstName} {serviceRequest.parentInfo?.middleNames}</span> </li>
+                <li className="list">Apellidos: <span className="listConten">{serviceRequest.parentInfo?.firstLastName} {serviceRequest.parentInfo?.secondLastName}</span> </li>
+                <li className="list">Contacto: <span className="listConten">{serviceRequest.parentInfo?.contact}</span> </li>
                 
             </ul>  
         </div>
-        
+      </div>  
       </Modal>
     </>
   );

@@ -1,8 +1,15 @@
+.accordion{
+    width: 100%;
+    padding-bottom: 0.5rem;
+}
+
 .accordion-container{
     width: 100%;
 }
 
-.accordion-titulo {
+.accordion-title {
+    width: 100%;
+    min-width: 20rem;
     position: relative;
     display: block;
     padding: 15px;
@@ -10,11 +17,18 @@
     background: $cl-secondary;
     color: #fff;
     text-decoration: none;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-tablet){
+        min-width: 30rem;
+    }
 }
+
 .accordion-titulo.open {
     background: $cl-secondary-2;
     color: #fff;
 }
+
 .accordion-titulo:hover {
     background: $cl-secondary-2;
 }
@@ -22,7 +36,11 @@
 .accordion-content {
     //display: none;
     padding: 20px;
+    margin: 0.5rem;
     overflow: auto;
+    background: $cl-dark-gray-soft;
+    border-radius: 15px;
+    box-sizing: border-box;
 }
 
 .arrowOpen {
@@ -34,6 +52,15 @@
     float: right;
 }
 
-.lyrics{
 
+.listConten{
+    
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.list{
+    list-style:none;
+    font-weight: bold;
+    
 }
