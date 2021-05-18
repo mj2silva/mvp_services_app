@@ -60,7 +60,7 @@ export type ServiceRequestResponse = {
   context: string,
   place: string,
   schedule: string,
-  serviceDate: firebase.firestore.Timestamp,
+  serviceDate?: firebase.firestore.Timestamp,
   metadata?: {
     createdDate: firebase.firestore.Timestamp,
   }
