@@ -8,6 +8,7 @@ const FilterDate: FC = () => {
   const openModal = () : void => setIsModalOpen(true);
   const closeModal = () : void => setIsModalOpen(false);
   const [startDate, setStartDate] = useState(new Date());
+  
   return (
     <>
       <button type="button" className="datatable__filter" onClick={openModal}>Fecha</button>
@@ -19,7 +20,7 @@ const FilterDate: FC = () => {
         <div className="filter">
           <div className="filter__content">
             <label className="form__field" htmlFor="service">
-            <span className={'form__label'}>Fecha</span>
+            <span className={'filter__label'}>Fecha</span>
             <ReactDatePicker
               popperPlacement="auto-start"
               dropdownMode="select"
@@ -33,16 +34,19 @@ const FilterDate: FC = () => {
               weekDayClassName={() => 'filter-datepicker__weekday'}
               timeClassName={() => 'filter-datepicker__time'}
               name="Date"
-              //selected={startDate}
-              //onChange={date => setStartDate(date)}
-              onChange={() => {}}
+              selected={startDate}
+              //onChange = {this.onChange}
+              onChange={date => setStartDate(date)}
+              //onChange={() => {}}
               autoComplete="off"
             />
               
             </label>
           </div>
         </div>
-           
+        <div className="filter__buttons">
+          <button type="button" className="filter__buttons--primary">Aplicar Filtro</button>
+        </div>
       </Modal>
     </>
   )

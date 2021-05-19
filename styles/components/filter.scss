@@ -20,13 +20,31 @@
         cursor: pointer;
       }
   }
+  &__label {
+    font-size: .5rem;
+    top: .5rem;
+    position: absolute;
+    display: block;
+    height: fit-content;
+    margin: auto 0;
+    left: 1rem;
+    color: $cl-gray;
+    animation: label-select linear .4s forwards;
+    bottom: auto;
+    &--focused {
+      animation: label-select linear .4s forwards;
+      font-size: .5rem;
+      top: .5rem;
+      bottom: auto;
+    }
+  }
   &__input{
     border: 1px solid $cl-dark-gray-soft;
     background-color: transparent;
     color: $cl-white;
     padding: 1rem;
     padding-right: 1rem;
-    padding-top: 1.6rem;
+    padding-top: 1.5rem;
     border-radius: 5px;
     position: relative;
     font-size: 1rem;
