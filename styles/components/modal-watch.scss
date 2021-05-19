@@ -16,8 +16,12 @@
     font-size: 16px;
     background: $cl-secondary;
     color: #fff;
-    text-decoration: none;
     box-sizing: border-box;
+
+    cursor: pointer;
+    
+    
+    border: none;
 
     @media screen and (min-width: $breakpoint-tablet){
         min-width: 30rem;
@@ -43,11 +47,23 @@
     box-sizing: border-box;
 }
 
-.arrowOpen {
+.accordion--closed{
+    display: none;
+}
+
+.accordion-content--hidden{
+    display: none;
+}
+
+.arrow {
     float: right;
 }
 
-.arrowClose {
+.arrowClose--visible {
+    float: right;
+}
+
+.arrowClose--hidden {
     display: none;
     float: right;
 }
