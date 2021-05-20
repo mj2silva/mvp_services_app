@@ -1,3 +1,5 @@
+import Options from '../components/asesorias/Options';
+
 export const capitalize = (str : string|string[]):string => {
   const ExRSpacesOrComma = /\s|,/;
   if (!Array.isArray(str)) {
@@ -18,7 +20,7 @@ export const shortDate = (date : Date):string => {
 
 export const fullDate = (date : Date):string => {
   if (date.getDate()) {
-    return date.toLocaleString(['es-ES', 'en-US'], {
+    return date.toLocaleString(['es-ES'], {
       day: 'numeric', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', weekday: 'long', hour12: true,
     });
   }
@@ -37,18 +39,23 @@ export const time = (date: Date|Date[], hour12:boolean = true):string => {
   return null;
 };
 
-export const phoneNumber = (
-  number:string, country:string = null, region:string = null,
-):string => {
+type phoneCodes = {
+  country?: string,
+  region?: string
+}
+
+export const phoneNumber = (number:string, codes?:phoneCodes):string => {
   if (number) {
-    if (country && region) {
-      return `+${country} (${region}) ${number}`;
-    }
-    if (country) {
-      return `+${country} ${number}`;
-    }
-    if (region) {
-      return `(${region}) ${number}`;
+    if (codes) {
+      if (codes.country && codes.region) {
+        return `+${codes.country} (${codes.region}) ${number}`;
+      }
+      if (codes.country) {
+        return `+${codes.country} ${number}`;
+      }
+      if (codes.region) {
+        return `(${codes.region}) ${number}`;
+      }
     }
     return number;
   }
