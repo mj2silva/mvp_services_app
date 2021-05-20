@@ -1,6 +1,6 @@
-import { FC, useState} from 'react';
+import { FC, useState,ReactNode} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronDown,faChevronUp} from '@fortawesome/free-solid-svg-icons';
+import {faChevronDown,faChevronUp, IconDefinition} from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
   children: ReactNode,
@@ -29,7 +29,7 @@ const Accordion:FC<Props> = ({children,title}:Props) => {
     return(
     <div className="accordion-container">
 
-            <button onClick={firstAccordion} className="accordion-title ">{title}
+            <button onClick={firstAccordion} className="accordion-title">{title}
               <FontAwesomeIcon  className="arrow" icon={iconFaChevronDown} />
             </button>
 
