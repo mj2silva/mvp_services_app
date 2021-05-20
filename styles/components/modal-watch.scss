@@ -1,0 +1,104 @@
+.accordion{
+    width: 100%;
+    padding-bottom: 0.5rem;
+}
+
+.accordion-container{
+    width: 100%;
+}
+
+.accordion-title {
+    width: 100%;
+    min-width: 20rem;
+    position: relative;
+    display: block;
+    padding: 15px;
+    font-size: 16px;
+    background: $cl-secondary;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+    
+    
+    border: none;
+
+    @media screen and (min-width: $breakpoint-tablet){
+        min-width: 30rem;
+    }
+}
+
+.accordion-titulo.open {
+    background: $cl-secondary-2;
+    color: #fff;
+}
+
+.accordion-titulo:hover {
+    background: $cl-secondary-2;
+}
+
+.accordion-content {
+    //display: none;
+    padding: 20px;
+    margin: 0.5rem;
+    overflow: auto;
+    background: $cl-dark-gray;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.accordion--closed{
+    display: none;
+}
+
+.accordion-content--hidden{
+    display: none;
+}
+
+.arrow {
+    float: right;
+}
+
+.arrowClose--visible {
+    float: right;
+}
+
+.arrowClose--hidden {
+    display: none;
+    float: right;
+}
+
+
+.listConten{
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    top: 2.4rem;
+    position: absolute;
+    display: block;
+    height: fit-content;
+    margin: auto 0;
+    left: 1.2rem;
+    color: $cl-softgray;
+    
+}
+
+.list{
+    list-style:none;
+    font-weight: bold;
+    color: $cl-tertiary;
+    font-size: 0.9rem;
+    border: 1px solid $cl-dark-gray-soft;
+    background-color: transparent;
+    
+    padding: 1rem;
+    padding-top: 1rem;
+    border-radius: 7px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    height: 5rem;
+    
+}

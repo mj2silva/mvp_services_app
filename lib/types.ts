@@ -59,15 +59,25 @@ export type ServiceRequestResponse = {
   modality: string,
   context: string,
   place: string,
-  schedule: string,
-  serviceDate?: firebase.firestore.Timestamp,
+  schedule?: {
+    end: string,
+    start: string
+  },
+  serviceDate: firebase.firestore.Timestamp,
   metadata?: {
     createdDate: firebase.firestore.Timestamp,
   }
   serviceType: string,
   status: string,
   parentInfo: {
-    contact: string,
+    contact: {
+      email: string,
+      phone: {
+        contryCode: string,
+        number: string,
+        regionCode: string
+      },
+    },
     firstLastName: string,
     firstName: string,
     middleNames: string,
@@ -97,15 +107,25 @@ export type ServiceRequest = {
   modality: string,
   context: string,
   place: string,
-  schedule: string,
+  schedule?: {
+    end: string,
+    start: string
+  },
   serviceDate: Date,
   metadata?: {
     createdDate: Date,
-  }
+  },
   serviceType: string,
   status: string,
   parentInfo: {
-    contact: string,
+    contact: {
+      email: string,
+      phone: {
+        contryCode: string,
+        number: string,
+        regionCode: string
+      },
+    },
     firstLastName: string,
     firstName: string,
     middleNames: string,

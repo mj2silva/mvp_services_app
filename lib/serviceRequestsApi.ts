@@ -21,7 +21,7 @@ export const getServiceRequests = async () : Promise<ServiceRequest[]> => {
       modality: data.modality,
       context: data.context,
       place: data.place,
-      schedule: data.schedule,
+      schedule: data.schedule
     });
   });
   return documents;
