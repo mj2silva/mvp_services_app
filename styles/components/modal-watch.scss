@@ -16,8 +16,13 @@
     font-size: 16px;
     background: $cl-secondary;
     color: #fff;
-    text-decoration: none;
     box-sizing: border-box;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+    
+    
+    border: none;
 
     @media screen and (min-width: $breakpoint-tablet){
         min-width: 30rem;
@@ -38,29 +43,62 @@
     padding: 20px;
     margin: 0.5rem;
     overflow: auto;
-    background: $cl-dark-gray-soft;
+    background: $cl-dark-gray;
     border-radius: 15px;
     box-sizing: border-box;
 }
 
-.arrowOpen {
+.accordion--closed{
+    display: none;
+}
+
+.accordion-content--hidden{
+    display: none;
+}
+
+.arrow {
     float: right;
 }
 
-.arrowClose {
+.arrowClose--visible {
+    float: right;
+}
+
+.arrowClose--hidden {
     display: none;
     float: right;
 }
 
 
 .listConten{
-    
     margin-left: 5px;
-    font-weight: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+    top: 2.4rem;
+    position: absolute;
+    display: block;
+    height: fit-content;
+    margin: auto 0;
+    left: 1.2rem;
+    color: $cl-softgray;
+    
 }
 
 .list{
     list-style:none;
     font-weight: bold;
+    color: $cl-tertiary;
+    font-size: 0.9rem;
+    border: 1px solid $cl-dark-gray-soft;
+    background-color: transparent;
+    
+    padding: 1rem;
+    padding-top: 1rem;
+    border-radius: 7px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    height: 5rem;
     
 }
