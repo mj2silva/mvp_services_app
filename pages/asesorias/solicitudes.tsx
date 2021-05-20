@@ -7,7 +7,7 @@ import Modal from '../../components/modal/Modal';
 import NewRequestForm from '../../components/forms/NewRequestForm';
 import ServiceRequestDetail from '../../components/common/ServiceRequestDetail';
 import {
-  shortDate, time, capitalize,
+  shortDate, time, capitalize, phoneNumber,
 } from '../../lib/formatter';
 
 import { TableContent } from '../../components/common/Table';
@@ -34,7 +34,7 @@ const Solicitudes:FC = () => {
     data: {
       row: requests.map((value) => (
         [
-          value.codigo || '-',
+          phoneNumber('9451254', { country: '51' }) || '-',
           time(value.serviceDate) || '-',
           shortDate(value.serviceDate) || '-',
           capitalize([value.serviceType, value.modality]),

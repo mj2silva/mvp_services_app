@@ -1,5 +1,3 @@
-import Options from '../components/asesorias/Options';
-
 export const capitalize = (str : string|string[]):string => {
   const ExRSpacesOrComma = /\s|,/;
   if (!Array.isArray(str)) {
@@ -44,18 +42,18 @@ type phoneCodes = {
   region?: string
 }
 
-export const phoneNumber = (number:string, codes?:phoneCodes):string => {
+export const phoneNumber = (
+  number:string, { country = null, region = null }:phoneCodes = {},
+):string => {
   if (number) {
-    if (codes) {
-      if (codes.country && codes.region) {
-        return `+${codes.country} (${codes.region}) ${number}`;
-      }
-      if (codes.country) {
-        return `+${codes.country} ${number}`;
-      }
-      if (codes.region) {
-        return `(${codes.region}) ${number}`;
-      }
+    if (country && region) {
+      return `+${country} (${region}) ${number}`;
+    }
+    if (country) {
+      return `+${country} ${number}`;
+    }
+    if (region) {
+      return `(${region}) ${number}`;
     }
     return number;
   }
