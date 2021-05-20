@@ -30,7 +30,7 @@ const Solicitudes:FC = () => {
     data: {
       row: requests.map((value) => (
         [
-          value.codigo,
+          value.code,
           value.serviceDate.toLocaleDateString(),
           value.serviceDate.toLocaleTimeString().slice(0, value.serviceDate.toLocaleTimeString().lastIndexOf(':')),
           value.serviceType,
