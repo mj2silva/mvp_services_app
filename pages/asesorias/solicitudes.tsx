@@ -7,7 +7,7 @@ import Modal from '../../components/modal/Modal';
 import NewRequestForm from '../../components/forms/NewRequestForm';
 import ServiceRequestDetail from '../../components/common/ServiceRequestDetail';
 import {
-  shortDate, time, capitalize, phoneNumber,
+  shortDate, time, capitalize,
 } from '../../lib/formatter';
 
 import { TableContent } from '../../components/common/Table';
