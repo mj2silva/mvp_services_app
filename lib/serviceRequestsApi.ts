@@ -8,7 +8,7 @@ export const getServiceRequests = async () : Promise<ServiceRequest[]> => {
     const data = doc.data() as ServiceRequestResponse;
     documents.push({
       id: doc.id,
-      codigo: data.codigo,
+      code: data.code,
       aditionalInfo: data.aditionalInfo,
       metadata: {
         createdDate: new Date(data.metadata?.createdDate?.toMillis()),

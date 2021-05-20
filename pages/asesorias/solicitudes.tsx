@@ -34,7 +34,7 @@ const Solicitudes:FC = () => {
     data: {
       row: requests.map((value) => (
         [
-          phoneNumber('9451254', { country: '51' }) || '-',
+          value.code || '-',
           time(value.serviceDate) || '-',
           shortDate(value.serviceDate) || '-',
           capitalize([value.serviceType, value.modality]),
