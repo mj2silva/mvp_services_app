@@ -16,8 +16,9 @@ const Datatable:FC<Props> = ({ tableContent }:Props) => {
           <button type="button" className="datatable__filter">Modalidad</button>
           <button type="button" className="datatable__filter">Estado</button>
         </div>
-       <ComponentFilterApplied />
+        <ComponentFilterApplied />
       </div>
+      
       <Table content={tableContent} wrapperClass="datatable" modifier="primary" />
     </div>
   );
