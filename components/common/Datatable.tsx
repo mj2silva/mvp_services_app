@@ -4,6 +4,7 @@ import Filters from './Filters';
 
 type Props = {
   tableContent: TableContent
+  filterContent: FilterContent
 }
 
 const Datatable:FC<Props> = ({ tableContent }:Props) => (

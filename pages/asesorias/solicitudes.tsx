@@ -55,7 +55,7 @@ const Solicitudes:FC = () => {
       {
         serviceRequests
           ? (
-            <Datatable tableContent={serviceRequestToTable(serviceRequests)} />
+            <Datatable tableContent={serviceRequestToTable(serviceRequests)} filterContent = {} />
           )
           : (
             <div className="spinner-container">
