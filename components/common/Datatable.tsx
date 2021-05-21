@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import ComponentFilter from '../asesorias/ComponentFilter';
+import ComponentFilterApplied from './ComponentFilterApplied';
 import Table, { TableContent } from './Table';
 
 type Props = {
@@ -7,9 +7,6 @@ type Props = {
 }
 
 const Datatable:FC<Props> = ({ tableContent }:Props) => {
-  const [statusDate, setStatusDate] = useState<string>(new Date().toLocaleDateString());
-  const [statusModality, setStatusModality] = useState<string>("Virtual");
-  const [statusState, setStatusState] = useState<string>("Aceptada");
   return(
     <div className="datatable">
       <div className="datatable__filters">
@@ -19,13 +16,8 @@ const Datatable:FC<Props> = ({ tableContent }:Props) => {
           <button type="button" className="datatable__filter">Modalidad</button>
           <button type="button" className="datatable__filter">Estado</button>
         </div>
-        <div className="datatable__filters-applied">
-          <ComponentFilter filterContent={statusDate} />
-          <ComponentFilter filterContent={statusModality} />
-          <ComponentFilter filterContent={statusState} />
-        </div>
+       <ComponentFilterApplied />
       </div>
-      
       <Table content={tableContent} wrapperClass="datatable" modifier="primary" />
     </div>
   );
