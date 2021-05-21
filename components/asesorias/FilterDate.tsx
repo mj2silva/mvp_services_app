@@ -7,7 +7,7 @@ const FilterDate: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const openModal = () : void => setIsModalOpen(true);
   const closeModal = () : void => setIsModalOpen(false);
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date | [Date, Date]>(new Date());
   
   return (
     <>
@@ -34,13 +34,10 @@ const FilterDate: FC = () => {
               weekDayClassName={() => 'filter-datepicker__weekday'}
               timeClassName={() => 'filter-datepicker__time'}
               name="Date"
-              selected={startDate}
-              //onChange = {this.onChange}
-              onChange={date => setStartDate(date)}
-              //onChange={() => {}}
+              selected={startDate[0] || startDate}
+              onChange={date => {setStartDate(date);}}
               autoComplete="off"
             />
-              
             </label>
           </div>
         </div>
