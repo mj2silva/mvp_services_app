@@ -34,7 +34,7 @@ const HomeConfiguracion : FC = () => {
           </div>
           <hr className="config-line" />
           <div className="config__row">
-            <Contact openedId={openedId} id={2} changeOpened={changeOpened} /> 
+            <Contact openedId={openedId} id={2} changeOpened={changeOpened} />
           </div>
         </div>
       </div>

@@ -23,11 +23,11 @@ const ContactClosed : FC<ContactClosedProps> = (props : ContactClosedProps) => {
       <span className="config__row-container-head">Contacto</span>
       <div className="config__row-container-body">
         <span className="config__row-container-slim">Principal: </span>
-          +51933153250
-        </div>
-        <div className="config__row-container-option">
+        +51933153250
+      </div>
+      <div className="config__row-container-option">
         <FontAwesomeIcon icon={faPencilAlt} className="config__row-container-option-icon" />
-          Editar
+        Editar
       </div>
     </button>
   );
@@ -42,28 +42,28 @@ const ContactOpen : FC<ContactOpenProps> = (props : ContactOpenProps) => {
   return (
     <div className="config__row-selected">
       <span className="config__row-container-headselected">Contacto</span>
-        <div className="config__row-container-body">
-          <div className="config__row-container-action">
-            <div className="contact">
-              <div className="contact__title">
-                <span className="config__row-container-slimselect">Nos contactaremos contigo a través de:</span>
-              </div>
-              <hr className="config-line" />
-              <div className="contact__body">
-                <div className="contact__body-container">
-                  <div className="contact__body-container-row">                          
-                    <span className="contact__body-container-row-primary">WhatsApp: </span>
-                    <span className="contact__body-container-row-secondary">+51 933153250</span>
-                    <span className="contact__body-container-row-span"> Principal</span>
-                  </div>
-                  <div className="contact__body-container-row">
-                    <span className="contact__body-container-row-primary">Email: </span>
-                    <span className="contact__body-container-row-secondary">axeljenner@hotmail.com</span>
-                    <button className="contact__body-container-row-spanselected">Elegir como principal</button>
-                  </div>
+      <div className="config__row-container-body">
+        <div className="config__row-container-action">
+          <div className="contact">
+            <div className="contact__title">
+              <span className="config__row-container-slimselect">Nos contactaremos contigo a través de:</span>
+            </div>
+            <hr className="config-line" />
+            <div className="contact__body">
+              <div className="contact__body-container">
+                <div className="contact__body-container-row">
+                  <span className="contact__body-container-row-primary">WhatsApp: </span>
+                  <span className="contact__body-container-row-secondary">+51 933153250</span>
+                  <span className="contact__body-container-row-span"> Principal</span>
+                </div>
+                <div className="contact__body-container-row">
+                  <span className="contact__body-container-row-primary">Email: </span>
+                  <span className="contact__body-container-row-secondary">axeljenner@hotmail.com</span>
+                  <button type="button" className="contact__body-container-row-spanselected">Elegir como principal</button>
                 </div>
               </div>
             </div>
+          </div>
           <div className="config__row-buttons-container">
             <button onClick={handleClose} type="button" className="config__row-buttons-container-btn-close">Cerrar</button>
             <button type="button" className="config__row-buttons-container-btn-new">Nuevo</button>

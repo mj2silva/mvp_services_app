@@ -149,6 +149,22 @@
                             color: $cl-white;
                         }
                     }
+                    &-save{
+                        margin-left: 64px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: $cl-secondary;
+                        color: $cl-softgray;
+                        border: none;
+                        outline: none;
+                        width: 80px;
+                        height: 26px;
+                        border-radius: 5px;
+                        &:hover{
+                            color: $cl-white;
+                        }
+                    }
                 }
             }
         }
@@ -164,7 +180,6 @@
     }
 }
 .contact{
-
     &__title{
     }
     &__body{
@@ -201,6 +216,60 @@
                         color: $cl-white;
                     }
                 }
+            }
+
+        }
+    }
+}
+
+.password{
+    &__body{
+        &-container{
+            &-row{
+                font-size: 16px;
+                margin: 22px;
+                &-primary{
+                    font-weight: 300;
+                    color: $cl-white;
+                }
+                &-input{
+                    height: 1.5rem;
+                    font-weight: 300;
+                    color: $cl-white;
+                    background: $cl-secondary;
+                    border-radius:5px;
+                    outline: none;
+                    border: 1px solid $cl-dark-gray-soft;
+                    margin-left:0.5rem;
+                }
+            }
+
+        }
+    }
+}
+
+.email{
+    &__body{
+        &-container{
+            &-row{
+                font-size: 16px;
+                margin: 22px;
+                &-primary{
+                    font-weight: 300;
+                    color: $cl-white;
+                }
+                &-input{
+                    width: 15rem;
+                    height: 1.5rem;
+                    font-weight: 300;
+                    color: $cl-white;
+                    background: $cl-secondary;
+                    border-radius:5px;
+                    outline: none;
+                    border: 1px solid $cl-dark-gray-soft;
+                    margin-left:0.5rem;
+                }
+                
             }
 
         }
