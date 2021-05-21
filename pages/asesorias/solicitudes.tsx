@@ -6,8 +6,12 @@ import Datatable from '../../components/common/Datatable';
 import Modal from '../../components/modal/Modal';
 import NewRequestForm from '../../components/forms/NewRequestForm';
 import ServiceRequestDetail from '../../components/common/ServiceRequestDetail';
+import {
+  shortDate, time, capitalize,
+} from '../../lib/formatter';
 
 import { TableContent } from '../../components/common/Table';
+import StatusBadge from '../../components/common/StatusBadge';
 
 const Solicitudes:FC = () => {
   const [serviceRequests, setServiceRequests] = useState(null);
@@ -30,12 +34,12 @@ const Solicitudes:FC = () => {
     data: {
       row: requests.map((value) => (
         [
-          value.codigo,
-          value.serviceDate.toLocaleDateString(),
-          value.serviceDate.toLocaleTimeString().slice(0, value.serviceDate.toLocaleTimeString().lastIndexOf(':')),
-          value.serviceType,
+          value.code || '-',
+          time(value.serviceDate) || '-',
+          shortDate(value.serviceDate) || '-',
+          capitalize([value.serviceType, value.modality]),
           <ServiceRequestDetail serviceRequest={value} />,
-          <div className="badge-container"><span className={`badge badge--${value.status.toLowerCase()}`}>{value.status}</span></div>,
+          <StatusBadge status={value.status} />,
         ]
       )),
     },
