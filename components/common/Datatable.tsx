@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Table, { TableContent } from './Table';
+import Table, { TableContent } from '../tables/Table';
 
 type Props = {
   tableContent: TableContent
