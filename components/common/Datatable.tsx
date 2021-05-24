@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Table, { TableContent } from '../tables/Table';
+import ComponentFilterApplied from './ComponentFilterApplied';
 import Filters from './Filters';
 
 type Props = {
@@ -8,7 +9,10 @@ type Props = {
 
 const Datatable:FC<Props> = ({ tableContent }:Props) => (
   <div className="datatable">
-    <Filters />
+    <div className="datatable__filters">
+      <Filters />
+      <ComponentFilterApplied />
+    </div>
     <Table content={tableContent} wrapperClass="datatable" modifier="primary" />
   </div>
 );
