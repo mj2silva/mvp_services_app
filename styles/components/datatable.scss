@@ -4,11 +4,42 @@
     
   }
   &__filters{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     padding: 20px 0 10px 20px;
+
     &-title{
       margin-right: 10px;
       font-weight: 500;
       color: $cl-softgray;
+    }
+    &-applied{
+      display: flex;
+      justify-items: flex-end;
+      justify-content: flex-end;
+      align-content: flex-end;
+      text-align: end;
+      margin-right: 1rem;
+    }
+    &-input{
+      border: 1px solid $cl-dark-gray-soft;
+      background-color: transparent;
+      color: $cl-white;
+      border-radius: 5px;
+      display: flex;
+      margin: 0px 5px;
+      min-margin: 2px;
+      justify-content: center;
+      text-align: center;
+      padding: 0.25rem;
+      padding-top: 0.25rem;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      width: width-fit-content;
+      &:hover{
+        cursor: default;
+      }
     }
   }
   &__filter{
@@ -18,13 +49,26 @@
     border: none;
     border-radius: 5px;
     color: $cl-tertiary;
-    margin: 0px 10px;
+    margin: 0px 4px;
     padding: 0 12px;
     cursor: pointer;
     font-family: 'Roboto';
     font-size: 1rem;
     &:hover{
       color: $cl-softgray;
+    }
+    &-button{
+      background: transparent;
+      border: none;
+      width: wisth-fit-content;
+      &--delete{
+        color: $cl-dark-gray-soft;
+        font-size: 0.75rem;
+        &:hover{
+          color: $cl-white;
+          cursor: pointer; 
+        }
+      }
     }
   }
 
