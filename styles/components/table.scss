@@ -67,6 +67,7 @@
         padding-right: 20px;
       }
     }
+
   }
   
   &__button{
@@ -80,6 +81,13 @@
     font-weight: 400;
     &:hover{
       color: $cl-white;
+    }
+  }
+
+  &__noResults{
+    margin: 0.25rem 0;
+    &--bold{
+      font-weight: bold;
     }
   }
 }
