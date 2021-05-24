@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
-import Table, { TableContent } from '../../components/common/Table';
+import { FC, useEffect, useState } from 'react';
+import Table from '../tables/Table';
 
 type Props = {
   openedId?: number,
@@ -34,16 +34,14 @@ type RoleOpenProps = {
 }
 
 const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
-  const TableConstructor = ['DNI','Estudiante','Parentesco','Detalle','Estado'];
-
-  const TableContent = {
-    headers: TableConstructor,
+  const TableConstructor = {
+    headers: ['DNI', 'Estudiante', 'Parentesco', 'Detalle', 'Estado'],
     data: {
-      row: [
-        ['12345678','Lisa Juárez','Padre',<button type="button" className="table__button">Ver</button>,<div className="badge-container"><span className="badge badge--aceptada">Inactivo</span></div>],
-        ['87654321','Cielo Juárez','Tutor',<button type="button" className="table__button">Ver</button>,<div className="badge-container"><span className="badge badge--rechazada">Inactivo</span></div>],
-      ]
-    }
+      rows: [
+        ['12345678', 'Lisa Juárez', 'Padre', <button type="button" className="table__button">Ver</button>, <div className="badge-container"><span className="badge badge--aceptada">Inactivo</span></div>],
+        ['87654321', 'Cielo Juárez', 'Tutor', <button type="button" className="table__button">Ver</button>, <div className="badge-container"><span className="badge badge--rechazada">Inactivo</span></div>],
+      ],
+    },
   };
 
   const { handleClose } = props;
@@ -60,7 +58,7 @@ const RoleOpen : FC<RoleOpenProps> = (props : RoleOpenProps) => {
             <div className="config__row-container-slim">
               Eres apoderado de los siguientes estudiantes:
             </div>
-              <Table content={TableContent} wrapperClass="config" modifier="striped-tbody" />
+            <Table content={TableConstructor} wrapperClass="config" modifier="striped-tbody" />
             <div className="config__row-buttons-container">
               <button onClick={handleClose} type="button" className="config__row-buttons-container-btn-close">Cerrar</button>
               <button type="button" className="config__row-buttons-container-btn-new">Nuevo</button>
